@@ -25,7 +25,7 @@ const CASE_STUDIES = [
 export default function WorkPage() {
   return (
     <>
-      <section style={{ padding:"80px 32px 56px", background:"linear-gradient(180deg,#F8FAFC 0%,#fff 100%)" }}>
+      <section style={{ padding:"80px 32px 56px", background:"linear-gradient(135deg,#E8F4FF 0%,#FFFFFF 45%,#F4ECFF 100%)" }}>
         <div style={{ maxWidth:1280, margin:"0 auto" }}>
           <div style={{ fontSize:12, fontWeight:600, letterSpacing:"0.25em", textTransform:"uppercase", color:"#0072FF" }}>Our work</div>
           <h1 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:56, fontWeight:700, letterSpacing:"-0.035em", marginTop:12, color:"#0F1A2E" }}>
@@ -37,7 +37,7 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <section style={{ padding:"0 32px 80px", background:"white" }}>
+      <section style={{ padding:"0 32px 80px", background:"linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)" }}>
         <div style={{ maxWidth:1280, margin:"0 auto", display:"flex", flexDirection:"column", gap:24 }}>
           {CASE_STUDIES.map(c => (
             <div key={c.company} style={{ display:"grid", gridTemplateColumns:"1fr 2fr 1fr", gap:40, padding:36, border:"1px solid #E2E8F0", borderRadius:20, alignItems:"center", boxShadow:"0 1px 3px rgba(15,26,46,0.04)", background:"white", transition:"all 200ms" }}>
@@ -61,7 +61,7 @@ export default function WorkPage() {
 
       <Testimonials />
 
-      <section style={{ padding:"80px 32px", background:"#F8FAFC", textAlign:"center" }}>
+      <section style={{ padding:"80px 32px", background:"linear-gradient(160deg,#EAF4FF 0%,#F8F0FF 55%,#E9FAFF 100%)", textAlign:"center" }}>
         <h2 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:36, fontWeight:700, color:"#0F1A2E", margin:0 }}>Ready to be next?</h2>
         <p style={{ fontSize:16, color:"#475569", marginTop:12, marginBottom:28 }}>Free 30-minute call. No pitch, just scoping.</p>
         <Link href="/schedule" style={{

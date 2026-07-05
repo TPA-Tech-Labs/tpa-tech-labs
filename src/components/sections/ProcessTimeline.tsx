@@ -7,7 +7,7 @@ const STEPS = [
 
 export default function ProcessTimeline() {
   return (
-    <section style={{ padding:"100px 32px", background:"white" }}>
+    <section style={{ padding:"100px 32px", background:"linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)" }}>
       <div style={{ maxWidth:1280, margin:"0 auto" }}>
         <div style={{ textAlign:"center", marginBottom:64 }}>
           <div style={{ fontSize:12, fontWeight:600, letterSpacing:"0.25em", textTransform:"uppercase", color:"#7F00FF" }}>How we work</div>

@@ -49,7 +49,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section style={{ padding:"100px 32px", background:"white" }}>
+      <section style={{ padding:"100px 32px", background:"linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)" }}>
         <div style={{ maxWidth:1280, margin:"0 auto" }}>
           <div style={{ textAlign:"center", marginBottom:64 }}>
             <div style={{ fontSize:12, fontWeight:600, letterSpacing:"0.25em", textTransform:"uppercase", color:"#7F00FF" }}>How we think</div>
@@ -59,7 +59,7 @@ export default function AboutPage() {
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:24 }}>
             {TEAM_VALUES.map(v => (
-              <div key={v.title} style={{ padding:32, border:"1px solid #E2E8F0", borderRadius:16, background:"#F8FAFC" }}>
+              <div key={v.title} style={{ padding:32, border:"1px solid #E2E8F0", borderRadius:16, background:"linear-gradient(145deg,#F4F9FF 0%,#FAF4FF 100%)" }}>
                 <div style={{ width:48, height:48, borderRadius:12, background:"linear-gradient(135deg,#EBF5FF,#D6EBFF)", display:"flex", alignItems:"center", justifyContent:"center", color:"#0072FF", marginBottom:20 }}>
                   <Icon name={v.icon as Parameters<typeof Icon>[0]["name"]} size={22} />
                 </div>
@@ -73,7 +73,7 @@ export default function AboutPage() {
 
       <ProcessTimeline />
 
-      <section style={{ padding:"80px 32px", background:"#F8FAFC", textAlign:"center" }}>
+      <section style={{ padding:"80px 32px", background:"linear-gradient(160deg,#EAF4FF 0%,#F8F0FF 55%,#E9FAFF 100%)", textAlign:"center" }}>
         <h2 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:36, fontWeight:700, color:"#0F1A2E", margin:0 }}>Want to work with us?</h2>
         <p style={{ fontSize:16, color:"#475569", marginTop:12, marginBottom:28 }}>Let&apos;s start with a conversation.</p>
         <div style={{ display:"flex", gap:12, justifyContent:"center" }}>

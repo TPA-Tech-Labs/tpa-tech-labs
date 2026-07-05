@@ -19,7 +19,7 @@ export default function ContactPage() {
   }
 
   return (
-    <section style={{ padding:"80px 32px", background:"white", minHeight:"70vh" }}>
+    <section style={{ padding:"80px 32px", background:"linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)", minHeight:"70vh" }}>
       <div style={{ maxWidth:1100, margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:80 }}>
         {/* Left */}
         <div>
@@ -54,7 +54,7 @@ export default function ContactPage() {
 
         {/* Form */}
         {sent ? (
-          <div style={{ background:"#F8FAFC", borderRadius:20, padding:40, border:"1px solid #E2E8F0", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", textAlign:"center", gap:16 }}>
+          <div style={{ background:"linear-gradient(145deg,#F4F9FF 0%,#FAF4FF 100%)", borderRadius:20, padding:40, border:"1px solid #E2E8F0", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", textAlign:"center", gap:16 }}>
             <div style={{ width:64, height:64, borderRadius:"50%", background:"linear-gradient(135deg,#00C6FF,#0072FF)", display:"flex", alignItems:"center", justifyContent:"center", color:"white" }}>
               <Icon name="check" size={28} stroke={3} />
             </div>
@@ -62,7 +62,7 @@ export default function ContactPage() {
             <p style={{ fontSize:15, color:"#475569", margin:0 }}>We&apos;ll reply within one business day.</p>
           </div>
         ) : (
-          <form style={{ background:"#F8FAFC", borderRadius:20, padding:32, border:"1px solid #E2E8F0" }} onSubmit={handleSubmit}>
+          <form style={{ background:"linear-gradient(145deg,#F4F9FF 0%,#FAF4FF 100%)", borderRadius:20, padding:32, border:"1px solid #E2E8F0" }} onSubmit={handleSubmit}>
             <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:14, marginBottom:14 }}>
               <div><label style={{ fontSize:12, fontWeight:500, color:"#334155", display:"block", marginBottom:6 }}>Name</label><input type="text" required placeholder="Your name" style={inputStyle}/></div>
               <div><label style={{ fontSize:12, fontWeight:500, color:"#334155", display:"block", marginBottom:6 }}>Company</label><input type="text" placeholder="Acme Inc" style={inputStyle}/></div>

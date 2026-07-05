@@ -14,7 +14,7 @@ export default function BlogPage() {
     return (
         <>
             {/* Header */}
-            <section style={{ padding: "80px 32px 64px", background: "linear-gradient(180deg,#F8FAFC 0%,#fff 100%)" }}>
+            <section style={{ padding: "80px 32px 64px", background: "linear-gradient(135deg,#E8F4FF 0%,#FFFFFF 45%,#F4ECFF 100%)" }}>
                 <div style={{ maxWidth: 1280, margin: "0 auto" }}>
                     <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", color: "#7F00FF" }}>Blog</div>
                     <h1 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 56, fontWeight: 700, letterSpacing: "-0.035em", marginTop: 12, color: "#0F1A2E" }}>
@@ -27,7 +27,7 @@ export default function BlogPage() {
             </section>
 
             {/* Category Filter */}
-            <section style={{ padding: "0 32px 40px", background: "white" }}>
+            <section style={{ padding: "0 32px 40px", background: "linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)" }}>
                 <div style={{ maxWidth: 1280, margin: "0 auto" }}>
                     <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                         {CATEGORIES.map((cat) => (
@@ -54,7 +54,7 @@ export default function BlogPage() {
             </section>
 
             {/* Blog Posts Grid */}
-            <section style={{ padding: "0 32px 100px", background: "white" }}>
+            <section style={{ padding: "0 32px 100px", background: "linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)" }}>
                 <div style={{ maxWidth: 1280, margin: "0 auto" }}>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24 }}>
                         {BLOG_POSTS.map((post) => (
@@ -121,7 +121,7 @@ export default function BlogPage() {
             </section>
 
             {/* Newsletter CTA */}
-            <section style={{ padding: "0 32px 80px", background: "white" }}>
+            <section style={{ padding: "0 32px 80px", background: "linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)" }}>
                 <div style={{ maxWidth: 1280, margin: "0 auto" }}>
                     <div style={{
                         padding: "48px",

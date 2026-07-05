@@ -13,7 +13,7 @@ const SERVICES = [
 
 export default function ServicesGrid() {
   return (
-    <section style={{ padding: "100px 32px", background: "#F8FAFC", position: "relative" }}>
+    <section style={{ padding: "100px 32px", background: "linear-gradient(160deg,#EAF4FF 0%,#F8F0FF 55%,#E9FAFF 100%)", position: "relative" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 64 }}>
           <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", color: "#0072FF" }}>Services</div>

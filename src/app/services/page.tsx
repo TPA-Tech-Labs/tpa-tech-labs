@@ -225,7 +225,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Header */}
-      <section style={{ padding: "80px 32px 64px", background: "linear-gradient(180deg,#F8FAFC 0%,#fff 100%)" }}>
+      <section style={{ padding: "80px 32px 64px", background: "linear-gradient(135deg,#E8F4FF 0%,#FFFFFF 45%,#F4ECFF 100%)" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", color: "#0072FF" }}>Services</div>
           <h1 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 56, fontWeight: 700, letterSpacing: "-0.035em", marginTop: 12, color: "#0F1A2E" }}>
@@ -238,7 +238,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Cards Overview */}
-      <section style={{ padding: "0 32px 80px", background: "white" }}>
+      <section style={{ padding: "0 32px 80px", background: "linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16 }}>
             {SERVICES.map((s) => (
@@ -287,7 +287,7 @@ export default function ServicesPage() {
             id={service.id}
             style={{
               padding: "100px 32px",
-              background: idx % 2 === 0 ? "#F8FAFC" : "white",
+              background: idx % 2 === 0 ? "linear-gradient(160deg,#EAF4FF 0%,#F8F0FF 55%,#E9FAFF 100%)" : "linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)",
             }}
           >
             <div style={{ maxWidth: 1280, margin: "0 auto" }}>
@@ -450,7 +450,7 @@ export default function ServicesPage() {
       ))}
 
       {/* CTA Section */}
-      <section style={{ padding: "0 32px 80px", background: "white" }}>
+      <section style={{ padding: "0 32px 80px", background: "linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ padding: "60px 32px", background: "#0A0E1A", borderRadius: 24, position: "relative", overflow: "hidden", textAlign: "center" }}>
             <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(168,200,240,0.08) 1px, transparent 1px)", backgroundSize: "20px 20px" }} />

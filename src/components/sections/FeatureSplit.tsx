@@ -10,7 +10,7 @@ const FEATURES = [
 
 export default function FeatureSplit() {
   return (
-    <section style={{ padding:"100px 32px", background:"white" }}>
+    <section style={{ padding:"100px 32px", background:"linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)" }}>
       <div style={{ maxWidth:1280, margin:"0 auto", display:"grid", gridTemplateColumns:"1fr 1fr", gap:80, alignItems:"center" }}>
         <div>
           <div style={{ fontSize:12, fontWeight:600, letterSpacing:"0.25em", textTransform:"uppercase", color:"#7F00FF" }}>Our Products</div>

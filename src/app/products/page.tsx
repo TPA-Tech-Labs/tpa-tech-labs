@@ -112,7 +112,7 @@ export default function ProductsPage() {
   return (
     <>
       {/* Header */}
-      <section style={{ padding: "80px 32px 64px", background: "linear-gradient(180deg,#F8FAFC 0%,#fff 100%)" }}>
+      <section style={{ padding: "80px 32px 64px", background: "linear-gradient(135deg,#E8F4FF 0%,#FFFFFF 45%,#F4ECFF 100%)" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", color: "#7F00FF" }}>Products</div>
           <h1 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 56, fontWeight: 700, letterSpacing: "-0.035em", marginTop: 12, color: "#0F1A2E" }}>
@@ -125,7 +125,7 @@ export default function ProductsPage() {
       </section>
 
       {/* Animated product cards */}
-      <section style={{ padding: "0 32px 80px", background: "linear-gradient(180deg,#fff 0%,#F8FAFC 100%)" }}>
+      <section style={{ padding: "0 32px 80px", background: "linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 24 }}>
           {PRODUCTS.map(p => (
             <a key={p.name} href={`#${p.id}`} style={{
@@ -183,7 +183,7 @@ export default function ProductsPage() {
       {PRODUCTS.map((product, idx) => (
         <section key={product.id} id={product.id} style={{
           padding: "120px 32px",
-          background: idx % 2 === 0 ? "#ffffff" : "#F8FAFC",
+          background: idx % 2 === 0 ? "linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)" : "linear-gradient(160deg,#EAF4FF 0%,#F8F0FF 55%,#E9FAFF 100%)",
         }}>
           <div style={{ maxWidth: 1280, margin: "0 auto" }}>
             {/* Product Header */}

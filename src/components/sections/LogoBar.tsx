@@ -2,7 +2,7 @@ const CLIENTS = ["STRIPE","ACME INC","NORTHWIND","TRIVALLEY","KAPPA LABS","ORION
 
 export default function LogoBar() {
   return (
-    <section style={{ padding:"48px 32px", borderBottom:"1px solid #E2E8F0", background:"#fff" }}>
+    <section style={{ padding:"48px 32px", borderBottom:"1px solid #E2E8F0", background:"linear-gradient(90deg,#F3FAFF 0%,#FFFFFF 50%,#F8F3FF 100%)" }}>
       <div style={{ maxWidth:1280, margin:"0 auto", textAlign:"center" }}>
         <div style={{ fontSize:12, color:"#64748B", letterSpacing:"0.2em", textTransform:"uppercase", fontWeight:600, marginBottom:24 }}>
           Trusted by teams shipping real software
