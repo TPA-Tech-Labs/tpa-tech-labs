@@ -31,7 +31,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav style={{ display: "flex", gap: 4 }} className="hide-mobile">
+        <nav style={{ gap: 4 }} className="nav-desktop">
           {NAV_ITEMS.map(item => {
             const active = pathname === item.href;
             return (
@@ -48,8 +48,8 @@ export default function Navbar() {
         </nav>
 
         {/* Desktop CTA */}
-        <Link href="/schedule" className="hide-mobile" style={{
-          display: "inline-flex", alignItems: "center", gap: 8,
+        <Link href="/schedule" className="nav-desktop" style={{
+          alignItems: "center", gap: 8,
           padding: "8px 18px", fontSize: 13, fontWeight: 600,
           background: "linear-gradient(135deg,#00C6FF,#0072FF)", color: "white",
           borderRadius: 9, textDecoration: "none", fontFamily: "'Inter',sans-serif",
@@ -63,9 +63,8 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="show-mobile"
+          className="nav-mobile-btn"
           style={{
-            display: "none",
             padding: 8,
             background: "transparent",
             border: "none",
@@ -86,8 +85,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="show-mobile" style={{
-          display: "none",
+        <div className="nav-mobile-menu" style={{
           position: "absolute",
           top: "100%",
           left: 0,
@@ -144,19 +142,6 @@ export default function Navbar() {
         </div>
       )}
 
-      <style jsx>{`
-        @media (max-width: 767px) {
-          .hide-mobile {
-            display: none !important;
-          }
-          .show-mobile {
-            display: block !important;
-          }
-          button.show-mobile {
-            display: flex !important;
-          }
-        }
-      `}</style>
     </header>
   );
 }

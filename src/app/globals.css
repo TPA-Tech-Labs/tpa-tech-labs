@@ -344,6 +344,44 @@
   }
 }
 
+/* Navbar responsive visibility */
+.nav-desktop {
+  display: none;
+}
+
+.nav-mobile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-mobile-menu {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .nav-desktop {
+    display: flex;
+  }
+
+  .nav-mobile-btn,
+  .nav-mobile-menu {
+    display: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* Hide on mobile */
 .hide-mobile {
   display: none;

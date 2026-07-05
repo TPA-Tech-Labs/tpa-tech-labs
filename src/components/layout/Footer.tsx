@@ -25,7 +25,7 @@ const COLS = [
     title: "Company", links: [
       { label: "About", href: "/about" },
       { label: "Work", href: "/work" },
-      { label: "Blog", href: "/contact" },
+      { label: "Blog", href: "/blog" },
       { label: "Careers", href: "/contact" },
       { label: "Press", href: "/about" },
     ]
@@ -93,7 +93,7 @@ export default function Footer() {
             {([
               { label: "Privacy", href: "/privacy" },
               { label: "Terms", href: "/terms" },
-              { label: "Security", href: "/contact" },
+              { label: "Security", href: "/security" },
             ]).map(({ label, href }) => (
               <Link key={label} href={href} style={{ color: "#4A7FA8", textDecoration: "none", cursor: "pointer" }}>{label}</Link>
             ))}

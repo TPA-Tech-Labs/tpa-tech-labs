@@ -12,9 +12,43 @@ const CALL_TYPES = [
   { id:"product"   as CallType, title:"Product demo",         dur:"45 min", desc:"Live demo of TPA Upgrade or Agent Studio",               icon:"cpu" },
 ];
 
-const AVAILABLE_DATES = new Set([20,21,22,23,24,27,28,29,30]);
 const SLOTS = ["09:00","09:30","10:30","11:00","13:30","14:00","15:30","16:00"];
 const STEP_LABELS = ["Type","Date & time","Your details","Confirm"];
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const MAX_MONTHS_AHEAD = 2;
+
+/* ── Calendar helpers (weekday slots, starting tomorrow) ── */
+type Day = { y:number; m:number; d:number };
+
+function isAvailable(y:number, m:number, d:number): boolean {
+  const dt = new Date(y, m, d);
+  const today = new Date();
+  today.setHours(23, 59, 59, 999); // bookings open from tomorrow
+  return dt.getTime() > today.getTime() && dt.getDay() !== 0 && dt.getDay() !== 6;
+}
+
+function firstAvailableDay(y:number, m:number): number | null {
+  const days = new Date(y, m + 1, 0).getDate();
+  for (let d = 1; d <= days; d++) if (isAvailable(y, m, d)) return d;
+  return null;
+}
+
+function initialSelection(): Day {
+  const n = new Date();
+  let y = n.getFullYear(), m = n.getMonth();
+  for (let i = 0; i <= MAX_MONTHS_AHEAD; i++) {
+    const d = firstAvailableDay(y, m);
+    if (d) return { y, m, d };
+    m += 1;
+    if (m > 11) { m = 0; y += 1; }
+  }
+  return { y, m, d: 1 };
+}
+
+function monthDelta(view:{y:number;m:number}): number {
+  const n = new Date();
+  return (view.y - n.getFullYear()) * 12 + (view.m - n.getMonth());
+}
 
 /* ── Reusable field ── */
 const inputCss: React.CSSProperties = {
@@ -33,10 +67,10 @@ function Field({ label, type="text", placeholder }: { label:string; type?:string
 }
 
 /* ── Google Calendar URL builder ── */
-function buildGCalUrl(day: number, slot: string | null, callType: typeof CALL_TYPES[number]) {
+function buildGCalUrl(day: Day, slot: string | null, callType: typeof CALL_TYPES[number]) {
   const [hh, mm] = (slot || "09:00").split(":").map(Number);
   const durationMinutes = parseInt(callType.dur);
-  const start = new Date(2026, 3, day, hh, mm); // April = month 3
+  const start = new Date(day.y, day.m, day.d, hh, mm);
   const end   = new Date(start.getTime() + durationMinutes * 60_000);
   const fmt   = (d: Date) => d.toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z";
   const params = new URLSearchParams({
@@ -53,7 +87,11 @@ function buildGCalUrl(day: number, slot: string | null, callType: typeof CALL_TY
 export default function SchedulePage() {
   const [step,    setStep]    = useState(0);
   const [type,    setType]    = useState<CallType>("discovery");
-  const [date,    setDate]    = useState(22);
+  const [sel,     setSel]     = useState<Day>(initialSelection);
+  const [view,    setView]    = useState<{y:number;m:number}>(() => {
+    const s = initialSelection();
+    return { y: s.y, m: s.m };
+  });
   const [slot,    setSlot]    = useState<string | null>(null);
 
   const callType = CALL_TYPES.find(t => t.id === type)!;
@@ -120,49 +158,58 @@ export default function SchedulePage() {
 
   /* ── Step 1: Calendar ── */
   const Step1 = () => {
-    const all = Array.from({length:30},(_,i)=>i+1);
-    const prev = [13,14,15,16,17,18,19]; // week before available range
-    const next_ = [1,2,3];
+    const daysInMonth = new Date(view.y, view.m + 1, 0).getDate();
+    const padding = (new Date(view.y, view.m, 1).getDay() + 6) % 7; // Monday-first
+    const delta = monthDelta(view);
+
+    function shiftMonth(dir: 1 | -1) {
+      const next = delta + dir;
+      if (next < 0 || next > MAX_MONTHS_AHEAD) return;
+      let m = view.m + dir, y = view.y;
+      if (m > 11) { m = 0; y += 1; }
+      if (m < 0)  { m = 11; y -= 1; }
+      setView({ y, m });
+    }
 
     return (
       <div style={{ display:"grid", gridTemplateColumns:"1.3fr 1fr" }}>
         {/* Calendar left */}
         <div style={{ padding:40, borderRight:"1px solid #E2E8F0" }}>
           <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:20 }}>
-            <h3 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:22, fontWeight:700, margin:0, letterSpacing:"-0.015em" }}>April 2026</h3>
+            <h3 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:22, fontWeight:700, margin:0, letterSpacing:"-0.015em" }}>{MONTHS[view.m]} {view.y}</h3>
             <div style={{ display:"flex", gap:6 }}>
-              {["‹","›"].map(ch => <button key={ch} style={{ width:32, height:32, borderRadius:8, border:"1px solid #E2E8F0", background:"white", cursor:"pointer", fontSize:16, color:"#334155" }}>{ch}</button>)}
+              {([["‹", -1], ["›", 1]] as const).map(([ch, dir]) => {
+                const disabled = dir === -1 ? delta <= 0 : delta >= MAX_MONTHS_AHEAD;
+                return (
+                  <button key={ch} onClick={() => shiftMonth(dir)} disabled={disabled} aria-label={dir === -1 ? "Previous month" : "Next month"} style={{
+                    width:32, height:32, borderRadius:8, border:"1px solid #E2E8F0",
+                    background:"white", cursor: disabled ? "default" : "pointer",
+                    fontSize:16, color: disabled ? "#CBD5E1" : "#334155",
+                  }}>{ch}</button>
+                );
+              })}
             </div>
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(7,1fr)", gap:6, textAlign:"center", marginBottom:4 }}>
             {["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map(d => <div key={d} style={{ fontSize:11, color:"#94A3B8", fontWeight:600, letterSpacing:"0.1em", textTransform:"uppercase", padding:"8px 0" }}>{d}</div>)}
           </div>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(7,1fr)", gap:6, textAlign:"center" }}>
-            {/* Padding before the 13th (April 1 = Wed, so Mon-Tue are empty) */}
-            <div style={cellBase()}/>
-            <div style={cellBase()}/>
-            {/* Days 1–12 (past / unavailable) */}
-            {Array.from({length:12},(_,i)=>i+1).map(n => <div key={n} style={cellBase({ color:"#CBD5E1" })}>{n}</div>)}
-            {/* Days 13–19 (prev week, unavailable) */}
-            {prev.map(n => <div key={n} style={cellBase({ color:"#CBD5E1" })}>{n}</div>)}
-            {/* Days 20–30 */}
-            {Array.from({length:11},(_,i)=>i+20).map(n => {
-              const avail = AVAILABLE_DATES.has(n);
-              const sel   = date===n;
+            {Array.from({ length: padding }).map((_, i) => <div key={"p"+i} style={cellBase()}/>)}
+            {Array.from({ length: daysInMonth }, (_, i) => i + 1).map(n => {
+              const avail  = isAvailable(view.y, view.m, n);
+              const picked = sel.y === view.y && sel.m === view.m && sel.d === n;
               return (
-                <div key={n} onClick={() => avail && (setDate(n), setSlot(null))} style={cellBase({
-                  background: sel ? "linear-gradient(135deg,#00C6FF,#0072FF)" : avail ? "#EBF5FF" : "transparent",
-                  color: sel ? "white" : avail ? "#0072FF" : "#CBD5E1",
-                  fontWeight: sel ? 700 : avail ? 600 : 400,
+                <div key={n} onClick={() => avail && (setSel({ y:view.y, m:view.m, d:n }), setSlot(null))} style={cellBase({
+                  background: picked ? "linear-gradient(135deg,#00C6FF,#0072FF)" : avail ? "#EBF5FF" : "transparent",
+                  color: picked ? "white" : avail ? "#0072FF" : "#CBD5E1",
+                  fontWeight: picked ? 700 : avail ? 600 : 400,
                   cursor: avail ? "pointer" : "default",
-                  boxShadow: sel ? "0 4px 14px -4px rgba(0,114,255,0.5)" : "none",
+                  boxShadow: picked ? "0 4px 14px -4px rgba(0,114,255,0.5)" : "none",
                 })}>
                   {n}
                 </div>
               );
             })}
-            {/* May 1-3 */}
-            {next_.map(n => <div key={"m"+n} style={cellBase({ color:"#CBD5E1" })}>{n}</div>)}
           </div>
           <div style={{ marginTop:28, padding:16, background:"#F8FAFC", borderRadius:12, display:"flex", gap:14, alignItems:"center", fontSize:13, color:"#475569" }}>
             <Icon name="clock" size={18} stroke={1.75} />
@@ -171,9 +218,9 @@ export default function SchedulePage() {
         </div>
 
         {/* Slots right */}
-        <div style={{ padding:40, background:"#F8FAFC" }}>
+        <div style={{ padding:40, background:"linear-gradient(160deg,#EAF4FF 0%,#F8F0FF 55%,#E9FAFF 100%)" }}>
           <div style={{ fontSize:13, color:"#64748B", marginBottom:4 }}>Available slots</div>
-          <h4 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:18, fontWeight:700, margin:"0 0 20px", letterSpacing:"-0.015em" }}>April {date}</h4>
+          <h4 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:18, fontWeight:700, margin:"0 0 20px", letterSpacing:"-0.015em" }}>{MONTHS[sel.m]} {sel.d}</h4>
           <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8 }}>
             {SLOTS.map(s => (
               <button key={s} onClick={() => setSlot(s)} style={{
@@ -236,7 +283,7 @@ export default function SchedulePage() {
           <div style={{ fontSize:11, color:"#00C6FF", letterSpacing:"0.2em", textTransform:"uppercase", fontWeight:600, marginBottom:14 }}>Booking summary</div>
           {[
             { icon:"sparkle" as const, text: callType.title },
-            { icon:"calendar" as const, text: `April ${date}` },
+            { icon:"calendar" as const, text: `${MONTHS[sel.m]} ${sel.d}, ${sel.y}` },
             { icon:"clock"   as const, text: `${slot||"—"} IST · ${callType.dur}` },
             { icon:"shield"  as const, text: "Confirmation within 1 hour" },
           ].map(row => (
@@ -257,7 +304,7 @@ export default function SchedulePage() {
         <Icon name="check" size={36} stroke={3} />
       </div>
       <h3 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:32, fontWeight:700, margin:0, letterSpacing:"-0.025em" }}>You&apos;re on the calendar.</h3>
-      <p style={{ fontSize:16, color:"#475569", marginTop:12 }}>April {date} at {slot||"—"} IST · {callType.dur} {callType.title.toLowerCase()}</p>
+      <p style={{ fontSize:16, color:"#475569", marginTop:12 }}>{MONTHS[sel.m]} {sel.d}, {sel.y} at {slot||"—"} IST · {callType.dur} {callType.title.toLowerCase()}</p>
       <div style={{ marginTop:28, padding:20, background:"#F8FAFC", borderRadius:14, border:"1px solid #E2E8F0", maxWidth:460, margin:"28px auto 0", textAlign:"left" }}>
         <div style={{ fontSize:12, fontWeight:600, letterSpacing:"0.15em", textTransform:"uppercase", color:"#64748B", marginBottom:10 }}>What&apos;s next</div>
         <ul style={{ listStyle:"none", padding:0, display:"flex", flexDirection:"column", gap:10 }}>
@@ -274,7 +321,7 @@ export default function SchedulePage() {
       </div>
       <div style={{ marginTop:28, display:"flex", gap:10, justifyContent:"center" }}>
         <a
-          href={buildGCalUrl(date, slot, callType)}
+          href={buildGCalUrl(sel, slot, callType)}
           target="_blank" rel="noopener noreferrer"
           style={{ display:"inline-flex", alignItems:"center", gap:8, padding:"10px 18px", fontSize:14, fontWeight:600, background:"linear-gradient(135deg,#00C6FF,#0072FF)", color:"white", borderRadius:10, textDecoration:"none", fontFamily:"'Inter',sans-serif" }}
         >
