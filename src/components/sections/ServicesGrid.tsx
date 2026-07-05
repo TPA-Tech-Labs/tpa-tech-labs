@@ -26,15 +26,15 @@ export default function ServicesGrid() {
         </div>
 
         <div className="services-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
-          {SERVICES.map((s) => <ServiceCard key={s.title} {...s} />)}
+          {SERVICES.map((s, i) => <ServiceCard key={s.title} {...s} index={i} />)}
         </div>
       </div>
     </section>
   );
 }
 
-function ServiceCard({ icon, title, body, tag, variant }: {
-  icon: string; title: string; body: string; tag?: string; variant?: string;
+function ServiceCard({ icon, title, body, tag, variant, index = 0 }: {
+  icon: string; title: string; body: string; tag?: string; variant?: string; index?: number;
 }) {
   const isDark = variant === "dark";
   const isFeature = variant === "feature";
@@ -51,12 +51,14 @@ function ServiceCard({ icon, title, body, tag, variant }: {
       {isDark && <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(168,200,240,0.06) 1px, transparent 1px)", backgroundSize: "14px 14px", pointerEvents: "none" }} />}
       <div style={{ position: "relative" }}>
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 18 }}>
-          <div style={{
+          <div className={isDark ? undefined : "tpa-icon-tile"} style={{
             width: 44, height: 44, borderRadius: 12,
             background: isDark ? "rgba(0,198,255,0.12)" : "linear-gradient(135deg,#00C6FF,#0072FF)",
             display: "flex", alignItems: "center", justifyContent: "center",
             color: isDark ? "#00C6FF" : "white",
             border: isDark ? "1px solid rgba(0,198,255,0.3)" : "none",
+            animationDelay: `${index * 0.4}s`,
+            ...(isDark ? { animation: "tpa-glow 3s ease-in-out infinite" } : {}),
           }}>
             <Icon name={icon as Parameters<typeof Icon>[0]["name"]} size={20} />
           </div>

@@ -268,6 +268,7 @@ function SchedulerVisual() {
                                 fontSize: 11,
                                 color: hasEvent ? (isConflict ? "#EF4444" : "#00C6FF") : "#64748B",
                                 fontWeight: hasEvent ? 700 : 400,
+                                animation: isConflict ? "tpa-pulse 1.8s ease-in-out infinite" : hasEvent ? "tpa-glow 3s ease-in-out infinite" : undefined,
                             }}
                         >
                             {i + 1}
@@ -295,32 +296,40 @@ function AgentStudioVisual() {
     return (
         <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 20 }}>
             {/* Workflow nodes */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
                 {[
-                    { icon: "📥", label: "Trigger", color: "#00C6FF" },
-                    { icon: "🤖", label: "Process", color: "#0072FF" },
-                    { icon: "🔍", label: "Validate", color: "#7F00FF" },
-                    { icon: "📤", label: "Output", color: "#10B981" },
-                ].map((node, i) => (
-                    <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-                        <div style={{
-                            width: 64,
-                            height: 64,
-                            borderRadius: 16,
-                            background: `${node.color}20`,
-                            border: `2px solid ${node.color}`,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            fontSize: 28,
-                        }}>
-                            {node.icon}
-                        </div>
-                        <span style={{ fontSize: 11, color: "#A8C8F0", fontWeight: 600 }}>{node.label}</span>
-                        {i < 3 && (
-                            <div style={{ position: "absolute", left: "50%", transform: "translateX(50%)", color: node.color, fontSize: 20 }}>
-                                →
+                    { icon: "inbox" as const, label: "Trigger", color: "#00C6FF" },
+                    { icon: "bot" as const, label: "Process", color: "#0072FF" },
+                    { icon: "search" as const, label: "Validate", color: "#7F00FF" },
+                    { icon: "send" as const, label: "Output", color: "#10B981" },
+                ].map((node, i, arr) => (
+                    <div key={i} style={{ display: "contents" }}>
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+                            <div style={{
+                                width: 64,
+                                height: 64,
+                                borderRadius: 16,
+                                background: `${node.color}20`,
+                                border: `2px solid ${node.color}`,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                color: node.color,
+                                boxShadow: `0 0 20px ${node.color}30`,
+                                animation: "tpa-pulse 2.6s ease-in-out infinite",
+                                animationDelay: `${i * 0.4}s`,
+                            }}>
+                                <Icon name={node.icon} size={26} />
                             </div>
+                            <span style={{ fontSize: 11, color: "#A8C8F0", fontWeight: 600 }}>{node.label}</span>
+                        </div>
+                        {i < arr.length - 1 && (
+                            <svg width="40" height="64" style={{ flexShrink: 0 }}>
+                                <path d="M0 32 H 40" stroke={node.color} strokeWidth="2" opacity="0.5" className="tpa-flow-line" fill="none" />
+                                <circle r="3" fill={node.color}>
+                                    <animateMotion dur="1.4s" begin={`${i * 0.45}s`} repeatCount="indefinite" path="M0 32 H 40" />
+                                </circle>
+                            </svg>
                         )}
                     </div>
                 ))}
@@ -364,8 +373,8 @@ function ObservatoryVisual() {
                             }}
                         >
                             {isAnomaly && i === 5 && (
-                                <div style={{ position: "absolute", top: -24, left: "50%", transform: "translateX(-50%)", fontSize: 16 }}>
-                                    ⚠️
+                                <div style={{ position: "absolute", top: -26, left: "50%", transform: "translateX(-50%)", color: "#EF4444", animation: "tpa-pulse 1.6s ease-in-out infinite" }}>
+                                    <Icon name="alert" size={16} />
                                 </div>
                             )}
                         </div>
@@ -375,8 +384,8 @@ function ObservatoryVisual() {
 
             {/* Alert panel */}
             <div style={{ padding: 16, background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: 12 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-                    <span style={{ fontSize: 16 }}>⚡</span>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8, color: "#EF4444" }}>
+                    <Icon name="zap" size={15} style={{ animation: "tpa-glow 1.8s ease-in-out infinite" }} />
                     <span style={{ fontSize: 13, fontWeight: 700, color: "#EF4444" }}>Anomaly Detected</span>
                 </div>
                 <div style={{ fontSize: 11, color: "#FCA5A5", lineHeight: 1.5 }}>
@@ -389,12 +398,14 @@ function ObservatoryVisual() {
             {/* System status */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
                 {[
-                    { label: "Services", value: "200", status: "✓" },
-                    { label: "Alerts", value: "1", status: "⚠" },
-                    { label: "Uptime", value: "99.9%", status: "✓" },
+                    { label: "Services", value: "200", icon: "check" as const, color: "#10B981" },
+                    { label: "Alerts", value: "1", icon: "alert" as const, color: "#F59E0B" },
+                    { label: "Uptime", value: "99.9%", icon: "check" as const, color: "#10B981" },
                 ].map((item, i) => (
                     <div key={i} style={{ padding: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 8, textAlign: "center" }}>
-                        <div style={{ fontSize: 18, marginBottom: 4 }}>{item.status}</div>
+                        <div style={{ display: "flex", justifyContent: "center", marginBottom: 6, color: item.color }}>
+                            <Icon name={item.icon} size={16} stroke={2.5} style={{ animation: "tpa-glow 2.6s ease-in-out infinite", animationDelay: `${i * 0.4}s` }} />
+                        </div>
                         <div style={{ fontSize: 16, fontWeight: 700, color: "white", fontFamily: "'Space Grotesk',sans-serif" }}>{item.value}</div>
                         <div style={{ fontSize: 10, color: "#64748B", marginTop: 2 }}>{item.label}</div>
                     </div>

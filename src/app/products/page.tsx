@@ -230,10 +230,8 @@ export default function ProductsPage() {
                     borderRadius: 16,
                     boxShadow: "0 4px 12px rgba(0,0,0,0.04)",
                   }}>
-                    <div style={{ width: 48, height: 48, borderRadius: 12, background: "linear-gradient(135deg,rgba(0,198,255,0.1),rgba(0,114,255,0.1))", border: "1px solid rgba(0,198,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
-                      <span style={{ fontSize: 24 }}>
-                        {i === 0 ? "⚡" : i === 1 ? "🎯" : i === 2 ? "🔬" : "📊"}
-                      </span>
+                    <div className="tpa-icon-tile" style={{ width: 48, height: 48, borderRadius: 12, background: "linear-gradient(135deg,rgba(0,198,255,0.1),rgba(0,114,255,0.1))", border: "1px solid rgba(0,198,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16, color: "#0072FF", animationDelay: `${i * 0.45}s` }}>
+                      <Icon name={i === 0 ? "zap" : i === 1 ? "target" : i === 2 ? "flask" : "chart"} size={24} />
                     </div>
                     <h4 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 18, fontWeight: 700, color: "#0F1A2E", marginBottom: 8 }}>
                       {feature.title}

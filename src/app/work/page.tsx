@@ -50,9 +50,15 @@ export default function WorkPage() {
                 <h4 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:700, color:"#0F1A2E", margin:"0 0 10px" }}>{c.headline}</h4>
                 <p style={{ fontSize:15, color:"#475569", lineHeight:1.65, margin:0 }}>{c.body}</p>
               </div>
-              <div style={{ textAlign:"center", padding:24, background:"linear-gradient(135deg,#0A0E1A,#0D1528)", borderRadius:16 }}>
-                <div style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:40, fontWeight:800, background:"linear-gradient(135deg,#00C6FF,#0072FF)", WebkitBackgroundClip:"text", backgroundClip:"text", color:"transparent" }}>{c.metric}</div>
-                <div style={{ fontSize:12, color:"#A8C8F0", marginTop:6, lineHeight:1.4 }}>{c.metricLabel}</div>
+              <div style={{ textAlign:"center", padding:24, background:"linear-gradient(135deg,#0A0E1A,#0D1528)", borderRadius:16, position:"relative", overflow:"hidden" }}>
+                <svg viewBox="0 0 200 80" preserveAspectRatio="none" style={{ position:"absolute", inset:0, width:"100%", height:"100%", opacity:0.35 }} aria-hidden>
+                  <path d="M0 66 C 30 62, 45 54, 70 50 S 120 34, 150 24 S 185 12, 200 8" fill="none" stroke="#00C6FF" strokeWidth="2" className="tpa-draw" />
+                  <path d="M0 74 C 40 72, 70 64, 100 58 S 160 44, 200 30" fill="none" stroke="#7F00FF" strokeWidth="1.5" strokeDasharray="4 6" className="tpa-flow-slow" opacity="0.7" />
+                </svg>
+                <div style={{ position:"relative" }}>
+                  <div style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:40, fontWeight:800, background:"linear-gradient(135deg,#00C6FF,#0072FF)", WebkitBackgroundClip:"text", backgroundClip:"text", color:"transparent" }}>{c.metric}</div>
+                  <div style={{ fontSize:12, color:"#A8C8F0", marginTop:6, lineHeight:1.4 }}>{c.metricLabel}</div>
+                </div>
               </div>
             </div>
           ))}

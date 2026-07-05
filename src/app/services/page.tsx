@@ -2,6 +2,7 @@
 import Icon from "@/components/ui/Icon";
 import Link from "next/link";
 import { useState } from "react";
+import { SERVICE_VISUALS } from "@/components/sections/ServiceVisuals";
 
 const SERVICES = [
   {
@@ -12,10 +13,10 @@ const SERVICES = [
     stack: "React, Next.js, TypeScript, Node, Python, PostgreSQL",
     description: "We build modern web applications that handle real traffic. From MVPs to enterprise platforms, our full-stack expertise covers frontend, backend, databases, and everything in between.",
     capabilities: [
-      { title: "Frontend Development", desc: "React, Next.js, TypeScript with modern UI/UX patterns", icon: "🎨" },
-      { title: "Backend APIs", desc: "RESTful and GraphQL APIs with Node.js, Python, or Go", icon: "⚙️" },
-      { title: "Database Design", desc: "PostgreSQL, MongoDB, Redis - optimized for your use case", icon: "💾" },
-      { title: "Performance Optimization", desc: "Sub-second load times, CDN setup, caching strategies", icon: "⚡" },
+      { title: "Frontend Development", desc: "React, Next.js, TypeScript with modern UI/UX patterns", icon: "palette" },
+      { title: "Backend APIs", desc: "RESTful and GraphQL APIs with Node.js, Python, or Go", icon: "gear" },
+      { title: "Database Design", desc: "PostgreSQL, MongoDB, Redis - optimized for your use case", icon: "database" },
+      { title: "Performance Optimization", desc: "Sub-second load times, CDN setup, caching strategies", icon: "zap" },
     ],
     deliverables: [
       "Fully responsive web application",
@@ -40,10 +41,10 @@ const SERVICES = [
     stack: "React Native, Swift, Kotlin, Expo",
     description: "Whether you need cross-platform with React Native or native iOS/Android, we build mobile apps that feel fast, look great, and scale to hundreds of thousands of users.",
     capabilities: [
-      { title: "Cross-Platform", desc: "React Native for iOS + Android from single codebase", icon: "📱" },
-      { title: "Native Development", desc: "Swift for iOS, Kotlin for Android when performance matters", icon: "🚀" },
-      { title: "Offline-First", desc: "Apps that work without internet, sync when connected", icon: "🔄" },
-      { title: "Push Notifications", desc: "Real-time alerts and engagement features", icon: "🔔" },
+      { title: "Cross-Platform", desc: "React Native for iOS + Android from single codebase", icon: "phone" },
+      { title: "Native Development", desc: "Swift for iOS, Kotlin for Android when performance matters", icon: "rocket" },
+      { title: "Offline-First", desc: "Apps that work without internet, sync when connected", icon: "refresh" },
+      { title: "Push Notifications", desc: "Real-time alerts and engagement features", icon: "bell" },
     ],
     deliverables: [
       "iOS and Android apps",
@@ -68,10 +69,10 @@ const SERVICES = [
     stack: "AWS, GCP, Terraform, Kubernetes, CI/CD",
     description: "We set up cloud infrastructure that grows with you. Infrastructure as code, automated deployments, monitoring, and everything you need to ship confidently.",
     capabilities: [
-      { title: "Cloud Architecture", desc: "AWS, GCP, or Azure - designed for your workload", icon: "☁️" },
-      { title: "Infrastructure as Code", desc: "Terraform, CloudFormation - version controlled infra", icon: "📝" },
-      { title: "Container Orchestration", desc: "Kubernetes, ECS, Docker - for microservices", icon: "🐳" },
-      { title: "CI/CD Pipelines", desc: "GitHub Actions, GitLab CI - automated testing & deployment", icon: "🔄" },
+      { title: "Cloud Architecture", desc: "AWS, GCP, or Azure - designed for your workload", icon: "cloud" },
+      { title: "Infrastructure as Code", desc: "Terraform, CloudFormation - version controlled infra", icon: "file" },
+      { title: "Container Orchestration", desc: "Kubernetes, ECS, Docker - for microservices", icon: "package" },
+      { title: "CI/CD Pipelines", desc: "GitHub Actions, GitLab CI - automated testing & deployment", icon: "refresh" },
     ],
     deliverables: [
       "Cloud infrastructure setup",
@@ -96,10 +97,10 @@ const SERVICES = [
     stack: "LangGraph, OpenAI, Anthropic, custom toolchains, on-prem",
     description: "We build domain-specific AI agents that integrate with your codebase, tickets, databases, and workflows. Not chatbots - actual agents that take actions and get work done.",
     capabilities: [
-      { title: "Custom Agent Development", desc: "Agents trained on your domain, data, and workflows", icon: "🤖" },
-      { title: "Tool Integration", desc: "Connect to GitHub, Jira, Slack, databases, APIs", icon: "🔗" },
-      { title: "Multi-Agent Systems", desc: "Orchestrate multiple specialized agents working together", icon: "🎭" },
-      { title: "On-Premise Deployment", desc: "Run agents in your infrastructure, data never leaves", icon: "🔒" },
+      { title: "Custom Agent Development", desc: "Agents trained on your domain, data, and workflows", icon: "bot" },
+      { title: "Tool Integration", desc: "Connect to GitHub, Jira, Slack, databases, APIs", icon: "link" },
+      { title: "Multi-Agent Systems", desc: "Orchestrate multiple specialized agents working together", icon: "users" },
+      { title: "On-Premise Deployment", desc: "Run agents in your infrastructure, data never leaves", icon: "lock" },
     ],
     agentTypes: [
       {
@@ -169,10 +170,10 @@ const SERVICES = [
     stack: "Fine-tuning, RAG, evals, MLOps, Kubeflow, MLflow",
     description: "We train, fine-tune, and deploy AI models for your specific use case. From RAG systems to fully fine-tuned models, we ship production-ready AI that actually works.",
     capabilities: [
-      { title: "Fine-Tuning", desc: "Adapt GPT-4, Claude, Llama to your domain and style", icon: "🎯" },
-      { title: "RAG Systems", desc: "Retrieval-augmented generation with your knowledge base", icon: "📚" },
-      { title: "Model Evaluation", desc: "Automated evals to measure accuracy and quality", icon: "📊" },
-      { title: "MLOps Pipeline", desc: "Training, versioning, deployment, monitoring", icon: "🔄" },
+      { title: "Fine-Tuning", desc: "Adapt GPT-4, Claude, Llama to your domain and style", icon: "target" },
+      { title: "RAG Systems", desc: "Retrieval-augmented generation with your knowledge base", icon: "book" },
+      { title: "Model Evaluation", desc: "Automated evals to measure accuracy and quality", icon: "chart" },
+      { title: "MLOps Pipeline", desc: "Training, versioning, deployment, monitoring", icon: "refresh" },
     ],
     deliverables: [
       "Fine-tuned or RAG model",
@@ -197,10 +198,10 @@ const SERVICES = [
     stack: "Java 8/11/17 → 21, Spring Boot 3, AI-assisted migration",
     description: "Stuck on Java 8? We migrate legacy Java codebases to modern versions using our AI-powered toolchain. Typically 3× faster than manual migration, with full test coverage maintained.",
     capabilities: [
-      { title: "Automated Migration", desc: "AI analyzes and refactors code automatically", icon: "🤖" },
-      { title: "Spring Boot Upgrade", desc: "Migrate to Spring Boot 3 with minimal changes", icon: "🍃" },
-      { title: "Dependency Updates", desc: "Update all libraries to compatible versions", icon: "📦" },
-      { title: "Test Coverage", desc: "Generate tests to verify migration correctness", icon: "🧪" },
+      { title: "Automated Migration", desc: "AI analyzes and refactors code automatically", icon: "bot" },
+      { title: "Spring Boot Upgrade", desc: "Migrate to Spring Boot 3 with minimal changes", icon: "leaf" },
+      { title: "Dependency Updates", desc: "Update all libraries to compatible versions", icon: "package" },
+      { title: "Test Coverage", desc: "Generate tests to verify migration correctness", icon: "flask" },
     ],
     deliverables: [
       "Migrated codebase (Java 21 + Spring Boot 3)",
@@ -307,6 +308,11 @@ export default function ServicesPage() {
                 <p style={{ fontSize: 18, color: "#475569", lineHeight: 1.6, maxWidth: 800 }}>{service.description}</p>
               </div>
 
+              {/* Live service visual */}
+              <div style={{ marginBottom: 64 }}>
+                {SERVICE_VISUALS[service.id]}
+              </div>
+
               {/* Capabilities Grid */}
               <div style={{ marginBottom: 64 }}>
                 <h3 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 28, fontWeight: 700, color: "#0F1A2E", marginBottom: 24 }}>
@@ -315,7 +321,9 @@ export default function ServicesPage() {
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }}>
                   {service.capabilities.map((cap, i) => (
                     <div key={i} style={{ padding: 24, background: "white", border: "1px solid #E2E8F0", borderRadius: 12 }}>
-                      <div style={{ fontSize: 32, marginBottom: 12 }}>{cap.icon}</div>
+                      <div className="tpa-icon-tile" style={{ width: 48, height: 48, borderRadius: 12, background: "linear-gradient(135deg,#00C6FF,#0072FF)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", marginBottom: 14, animationDelay: `${i * 0.45}s` }}>
+                        <Icon name={cap.icon as Parameters<typeof Icon>[0]["name"]} size={22} />
+                      </div>
                       <h4 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 18, fontWeight: 700, color: "#0F1A2E", marginBottom: 8 }}>
                         {cap.title}
                       </h4>
@@ -388,7 +396,9 @@ export default function ServicesPage() {
                     borderRadius: 12,
                   }}>
                     <h4 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 18, fontWeight: 700, color: "#0F1A2E", marginBottom: 8 }}>
-                      💡 Custom Agent Ideas?
+                      <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+                        <Icon name="bulb" size={18} style={{ color: "#0072FF" }} /> Custom Agent Ideas?
+                      </span>
                     </h4>
                     <p style={{ fontSize: 14, color: "#475569", lineHeight: 1.6, margin: 0 }}>
                       Don't see what you need? We build custom agents for any use case. From sales automation to research assistants to workflow orchestration - if it can be automated with AI, we can build it. <Link href="/schedule" style={{ color: "#0072FF", fontWeight: 600 }}>Let's talk about your specific needs →</Link>
