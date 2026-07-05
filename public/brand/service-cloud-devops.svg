@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" role="img" aria-label="Cloud and DevOps">
+  <defs>
+    <linearGradient id="s3-p" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00C6FF"/><stop offset="100%" stop-color="#0072FF"/>
+    </linearGradient>
+    <filter id="s3-g"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <polygon points="55,15 90,35 90,75 55,95 20,75 20,35" fill="none" stroke="url(#s3-p)" stroke-width="2.5" filter="url(#s3-g)"/>
+  <polygon points="55,26 80,40 80,70 55,84 30,70 30,40" fill="url(#s3-p)" opacity="0.1"/>
+  <circle cx="46" cy="57" r="10" fill="none" stroke="url(#s3-p)" stroke-width="3" filter="url(#s3-g)"/>
+  <circle cx="64" cy="57" r="10" fill="none" stroke="url(#s3-p)" stroke-width="3" filter="url(#s3-g)"/>
+  <polyline points="66,44 71,46 69,51" fill="none" stroke="#00C6FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="44,70 39,68 41,63" fill="none" stroke="#00C6FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="55" cy="15" r="2.5" fill="#00C6FF"/><circle cx="90" cy="35" r="2.5" fill="#0072FF"/>
+  <circle cx="90" cy="75" r="2.5" fill="#0072FF"/><circle cx="55" cy="95" r="2.5" fill="#00C6FF"/>
+  <circle cx="20" cy="75" r="2.5" fill="#7F00FF"/><circle cx="20" cy="35" r="2.5" fill="#7F00FF"/>
+  <text x="112" y="53" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="30" font-weight="800" letter-spacing="-0.5" fill="url(#s3-p)">CLOUD</text>
+  <rect x="112" y="60" width="200" height="1.5" fill="url(#s3-p)" opacity="0.5"/>
+  <text x="113" y="80" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="300" letter-spacing="4" fill="#ccddff">&amp; DEVOPS</text>
+</svg>

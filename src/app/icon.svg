@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00C6FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0072FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7F00FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0072FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0E1A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D1528;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark background -->
+  <rect x="0" y="0" width="100" height="100" rx="20" fill="url(#bgGrad)"/>
+
+  <!-- Glow orb -->
+  <ellipse cx="50" cy="50" rx="40" ry="40" fill="#0072FF" opacity="0.08"/>
+
+  <!-- Outer hexagon -->
+  <polygon points="50,8 82,26 82,64 50,82 18,64 18,26"
+           fill="none" stroke="url(#primaryGrad)" stroke-width="2.5" filter="url(#glow)"/>
+
+  <!-- Inner hex fill -->
+  <polygon points="50,20 72,32 72,56 50,68 28,56 28,32"
+           fill="url(#primaryGrad)" opacity="0.10"/>
+
+  <!-- T letter centered -->
+  <rect x="33" y="34" width="34" height="5" rx="2.5" fill="url(#primaryGrad)" filter="url(#glow)"/>
+  <rect x="47" y="34" width="6" height="28" rx="3" fill="url(#primaryGrad)" filter="url(#glow)"/>
+
+  <!-- Vertex dots -->
+  <circle cx="50" cy="8"  r="4" fill="#00C6FF" filter="url(#glow)"/>
+  <circle cx="82" cy="26" r="4" fill="#0072FF" filter="url(#glow)"/>
+  <circle cx="82" cy="64" r="4" fill="#0072FF" filter="url(#glow)"/>
+  <circle cx="50" cy="82" r="4" fill="#00C6FF" filter="url(#glow)"/>
+  <circle cx="18" cy="64" r="4" fill="#7F00FF" filter="url(#glow)"/>
+  <circle cx="18" cy="26" r="4" fill="#7F00FF" filter="url(#glow)"/>
+
+  <!-- Border accent -->
+  <rect x="1" y="1" width="98" height="98" rx="19"
+        fill="none" stroke="url(#accentGrad)" stroke-width="1" opacity="0.4"/>
+</svg>

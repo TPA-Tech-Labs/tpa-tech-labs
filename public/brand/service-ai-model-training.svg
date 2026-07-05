@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" role="img" aria-label="AI Model Training">
+  <defs>
+    <linearGradient id="s5-p" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00C6FF"/><stop offset="100%" stop-color="#0072FF"/>
+    </linearGradient>
+    <filter id="s5-g"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <polygon points="55,15 90,35 90,75 55,95 20,75 20,35" fill="none" stroke="url(#s5-p)" stroke-width="2.5" filter="url(#s5-g)"/>
+  <polygon points="55,26 80,40 80,70 55,84 30,70 30,40" fill="url(#s5-p)" opacity="0.1"/>
+  <g stroke="url(#s5-p)" stroke-width="1.2" opacity="0.75">
+    <line x1="42" y1="48" x2="55" y2="40"/><line x1="42" y1="48" x2="55" y2="57"/><line x1="42" y1="48" x2="55" y2="74"/>
+    <line x1="42" y1="66" x2="55" y2="40"/><line x1="42" y1="66" x2="55" y2="57"/><line x1="42" y1="66" x2="55" y2="74"/>
+    <line x1="68" y1="48" x2="55" y2="40"/><line x1="68" y1="48" x2="55" y2="57"/><line x1="68" y1="48" x2="55" y2="74"/>
+    <line x1="68" y1="66" x2="55" y2="40"/><line x1="68" y1="66" x2="55" y2="57"/><line x1="68" y1="66" x2="55" y2="74"/>
+  </g>
+  <circle cx="42" cy="48" r="3.5" fill="#7F00FF"/><circle cx="42" cy="66" r="3.5" fill="#7F00FF"/>
+  <circle cx="55" cy="40" r="3.5" fill="url(#s5-p)" filter="url(#s5-g)"/>
+  <circle cx="55" cy="57" r="3.5" fill="url(#s5-p)" filter="url(#s5-g)"/>
+  <circle cx="55" cy="74" r="3.5" fill="url(#s5-p)" filter="url(#s5-g)"/>
+  <circle cx="68" cy="48" r="3.5" fill="#00C6FF"/><circle cx="68" cy="66" r="3.5" fill="#00C6FF"/>
+  <circle cx="55" cy="15" r="2.5" fill="#00C6FF"/><circle cx="90" cy="35" r="2.5" fill="#0072FF"/>
+  <circle cx="90" cy="75" r="2.5" fill="#0072FF"/><circle cx="55" cy="95" r="2.5" fill="#00C6FF"/>
+  <circle cx="20" cy="75" r="2.5" fill="#7F00FF"/><circle cx="20" cy="35" r="2.5" fill="#7F00FF"/>
+  <text x="112" y="53" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="30" font-weight="800" letter-spacing="-0.5" fill="url(#s5-p)">AI MODEL</text>
+  <rect x="112" y="60" width="200" height="1.5" fill="url(#s5-p)" opacity="0.5"/>
+  <text x="113" y="80" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="300" letter-spacing="4" fill="#ccddff">TRAINING</text>
+</svg>

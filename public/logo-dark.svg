@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 180" width="500" height="180">
+  <defs>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00C6FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0072FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7F00FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0072FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0E1A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D1528;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark background with rounded corners -->
+  <rect x="0" y="0" width="500" height="180" rx="16" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid dots background -->
+  <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="10" cy="10" r="0.8" fill="#1a2540"/>
+  </pattern>
+  <rect x="0" y="0" width="500" height="180" rx="16" fill="url(#dots)"/>
+
+  <!-- Glow orb behind icon -->
+  <ellipse cx="75" cy="54" rx="45" ry="45" fill="#0072FF" opacity="0.07"/>
+
+  <!-- ===== ICON MARK ===== -->
+  <!-- Outer hexagon frame -->
+  <polygon points="75,18 108,36 108,72 75,90 42,72 42,36"
+           fill="none" stroke="url(#primaryGrad)" stroke-width="2.5" filter="url(#glow)"/>
+
+  <!-- Inner hex fill -->
+  <polygon points="75,30 100,44 100,64 75,78 50,64 50,44"
+           fill="url(#primaryGrad)" opacity="0.10"/>
+
+  <!-- T shape inside hex -->
+  <rect x="62" y="40" width="26" height="4" rx="2" fill="url(#primaryGrad)" filter="url(#glow)"/>
+  <rect x="73" y="40" width="4" height="22" rx="2" fill="url(#primaryGrad)" filter="url(#glow)"/>
+
+  <!-- Vertex dots -->
+  <circle cx="75" cy="18" r="3.5" fill="#00C6FF" filter="url(#glow)"/>
+  <circle cx="108" cy="36" r="3.5" fill="#0072FF" filter="url(#glow)"/>
+  <circle cx="108" cy="72" r="3.5" fill="#0072FF" filter="url(#glow)"/>
+  <circle cx="75" cy="90" r="3.5" fill="#00C6FF" filter="url(#glow)"/>
+  <circle cx="42" cy="72" r="3.5" fill="#7F00FF" filter="url(#glow)"/>
+  <circle cx="42" cy="36" r="3.5" fill="#7F00FF" filter="url(#glow)"/>
+
+  <!-- Circuit extensions -->
+  <line x1="108" y1="54" x2="122" y2="54" stroke="#0072FF" stroke-width="1.5" opacity="0.5" filter="url(#glow)"/>
+  <circle cx="125" cy="54" r="2.5" fill="#0072FF" opacity="0.6" filter="url(#glow)"/>
+  <line x1="42" y1="54" x2="28" y2="54" stroke="#7F00FF" stroke-width="1.5" opacity="0.5" filter="url(#glow)"/>
+  <circle cx="25" cy="54" r="2.5" fill="#7F00FF" opacity="0.6" filter="url(#glow)"/>
+
+  <!-- ===== WORDMARK ===== -->
+  <text x="138" y="72"
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="52"
+        font-weight="800"
+        letter-spacing="-1"
+        fill="url(#primaryGrad)"
+        filter="url(#softglow)">TPA</text>
+
+  <!-- Divider line -->
+  <rect x="138" y="80" width="235" height="1.5" rx="1" fill="url(#accentGrad)" opacity="0.5"/>
+
+  <!-- Tech Labs -->
+  <text x="140" y="105"
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="22"
+        font-weight="300"
+        letter-spacing="8"
+        fill="#A8C8F0"
+        opacity="0.95">TECH LABS</text>
+
+  <!-- Tagline -->
+  <text x="140" y="130"
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="11"
+        font-weight="400"
+        letter-spacing="2.5"
+        fill="#4A7FA8"
+        opacity="0.9">BUILD · INNOVATE · DELIVER</text>
+
+  <!-- Border accent -->
+  <rect x="1" y="1" width="498" height="178" rx="15"
+        fill="none" stroke="url(#accentGrad)" stroke-width="1" opacity="0.3"/>
+</svg>

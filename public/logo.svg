@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 180" width="500" height="180">
+  <defs>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00C6FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0072FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7F00FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0072FF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background (transparent) -->
+
+  <!-- ===== ICON MARK ===== -->
+  <!-- Outer hexagon frame -->
+  <polygon points="75,18 108,36 108,72 75,90 42,72 42,36"
+           fill="none" stroke="url(#primaryGrad)" stroke-width="3" filter="url(#glow)"/>
+
+  <!-- Inner hex accent (rotated) -->
+  <polygon points="75,30 100,44 100,64 75,78 50,64 50,44"
+           fill="url(#primaryGrad)" opacity="0.12"/>
+
+  <!-- T shape inside hex -->
+  <rect x="62" y="40" width="26" height="4" rx="2" fill="url(#primaryGrad)" filter="url(#glow)"/>
+  <rect x="73" y="40" width="4" height="22" rx="2" fill="url(#primaryGrad)" filter="url(#glow)"/>
+
+  <!-- Small circuit dots at hex vertices -->
+  <circle cx="75" cy="18" r="3" fill="#00C6FF" filter="url(#glow)"/>
+  <circle cx="108" cy="36" r="3" fill="#0072FF" filter="url(#glow)"/>
+  <circle cx="108" cy="72" r="3" fill="#0072FF" filter="url(#glow)"/>
+  <circle cx="75" cy="90" r="3" fill="#00C6FF" filter="url(#glow)"/>
+  <circle cx="42" cy="72" r="3" fill="#7F00FF" filter="url(#glow)"/>
+  <circle cx="42" cy="36" r="3" fill="#7F00FF" filter="url(#glow)"/>
+
+  <!-- Small connecting circuit lines -->
+  <line x1="108" y1="54" x2="118" y2="54" stroke="#0072FF" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="121" cy="54" r="2" fill="#0072FF" opacity="0.6"/>
+  <line x1="42" y1="54" x2="32" y2="54" stroke="#7F00FF" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="29" cy="54" r="2" fill="#7F00FF" opacity="0.6"/>
+
+  <!-- ===== WORDMARK ===== -->
+  <!-- TPA -->
+  <text x="138" y="72"
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="52"
+        font-weight="800"
+        letter-spacing="-1"
+        fill="url(#primaryGrad)"
+        filter="url(#glow)">TPA</text>
+
+  <!-- Divider line -->
+  <rect x="138" y="80" width="230" height="2" rx="1" fill="url(#accentGrad)" opacity="0.6"/>
+
+  <!-- Tech Labs -->
+  <text x="140" y="105"
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="22"
+        font-weight="300"
+        letter-spacing="8"
+        fill="#ccddff"
+        opacity="0.9">TECH LABS</text>
+
+  <!-- Tagline -->
+  <text x="140" y="130"
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="11"
+        font-weight="400"
+        letter-spacing="2.5"
+        fill="#7FA8D8"
+        opacity="0.75">BUILD · INNOVATE · DELIVER</text>
+</svg>

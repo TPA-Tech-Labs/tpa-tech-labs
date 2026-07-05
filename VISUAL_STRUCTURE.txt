@@ -1,0 +1,294 @@
+═══════════════════════════════════════════════════════════════════════════════
+  TPA WEBSITE - VISUAL STRUCTURE OVERVIEW
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              HOMEPAGE (/)                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  HERO SECTION                                                               │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │  Build smarter. Ship faster. Scale confidently.                     │   │
+│  │  [Book a 30-min call]  [Watch a demo]                               │   │
+│  │  40+ Projects | 12 Engineers | 6 wks Avg. migration                 │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  LOGO BAR                                                                   │
+│  [Client Logo] [Client Logo] [Client Logo] [Client Logo]                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  SERVICES GRID                                                              │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐                     │
+│  │ Web Dev      │  │ Mobile Apps  │  │ Cloud/DevOps │                     │
+│  └──────────────┘  └──────────────┘  └──────────────┘                     │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐                     │
+│  │ AI Agents    │  │ AI Training  │  │ Java Modern. │                     │
+│  └──────────────┘  └──────────────┘  └──────────────┘                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  ★ PRODUCT SHOWCASE (NEW!)                                                 │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │  [TPA Upgrade] [Scheduler] [Agent Studio] [Observatory]            │   │
+│  │                                                                     │   │
+│  │  ┌──────────────────────┐  ┌──────────────────────────────────┐   │   │
+│  │  │ TPA Upgrade          │  │  ┌────────────────────────────┐  │   │   │
+│  │  │                      │  │  │  BEFORE      │    AFTER     │  │   │   │
+│  │  │ ✓ Automated Refactor │  │  │  Date date   │  var date =  │  │   │   │
+│  │  │ ✓ Zero Downtime      │  │  │  = new Date()│  LocalDate   │  │   │   │
+│  │  │ ✓ Test Generation    │  │  │              │  .now()      │  │   │   │
+│  │  │ ✓ Dependency Resolve │  │  └────────────────────────────┘  │   │   │
+│  │  │                      │  │  [847 files] [1,420 tests] [6wks]│   │   │
+│  │  └──────────────────────┘  └──────────────────────────────────┘   │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  FEATURE SPLIT                                                              │
+│  TPA Upgrade — AI-assisted Java modernization                              │
+│  [Code panel with migration preview]                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  PROCESS TIMELINE                                                           │
+│  Discovery → Design → Build → Deploy → Support                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  TESTIMONIALS                                                               │
+│  "Quote from client..." - Client Name, Company                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  CTA BAND                                                                   │
+│  Ready to start your project? [Get in touch]                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          PRODUCTS PAGE (/products)                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  HEADER                                                                     │
+│  Built for engineers, by engineers.                                         │
+│  Tools we built because we needed them.                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  PRODUCT CARDS (Clickable)                                                  │
+│  ┌──────────────────────────┐  ┌──────────────────────────┐               │
+│  │ 🔧 TPA Upgrade      [GA] │  │ 📅 Scheduler       [Beta]│               │
+│  │ AI-assisted Java...      │  │ Intelligent scheduling...│               │
+│  │ ┌────────────────────┐   │  │ ┌────────────────────┐   │               │
+│  │ │ [Progress Bar]     │   │  │ │ [Calendar Slots]   │   │               │
+│  │ │ ✓ 347/847 files    │   │  │ │ 09:00 ● 10:30 ○    │   │               │
+│  │ └────────────────────┘   │  │ └────────────────────┘   │               │
+│  └──────────────────────────┘  └──────────────────────────┘               │
+│  ┌──────────────────────────┐  ┌──────────────────────────┐               │
+│  │ 🤖 Agent Studio [Preview]│  │ ✨ Observatory [Preview] │               │
+│  │ Build, test, deploy...   │  │ AI-powered observability │               │
+│  │ ┌────────────────────┐   │  │ ┌────────────────────┐   │               │
+│  │ │ [Chat Interface]   │   │  │ │ [Metrics Chart]    │   │               │
+│  │ │ User: Summarise... │   │  │ │ p99: 142ms ↑       │   │               │
+│  │ └────────────────────┘   │  │ └────────────────────┘   │               │
+│  └──────────────────────────┘  └──────────────────────────┘               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  ★ DETAILED SECTION: TPA UPGRADE (NEW!)                                    │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │  🔧 TPA Upgrade [GA]                                                │   │
+│  │  Transform legacy Java codebases with AI-powered modernization...  │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │  ARCHITECTURE DIAGRAM                                               │   │
+│  │  ┌──────┐    ┌──────┐    ┌──────┐    ┌──────┐                     │   │
+│  │  │ 📁   │ →  │ 🤖   │ →  │ ⚡   │ →  │ ✓    │                     │   │
+│  │  │Legacy│    │AI    │    │Refact│    │Modern│                     │   │
+│  │  └──────┘    └──────┘    └──────┘    └──────┘                     │   │
+│  │  [🔍 AST Analysis] [🧪 Test Gen] [📦 Dependencies]                │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  KEY FEATURES                                                               │
+│  ┌──────────────────────────┐  ┌──────────────────────────┐               │
+│  │ ⚡ Automated Refactoring  │  │ 🎯 Zero Downtime         │               │
+│  │ AI identifies and updates│  │ Incremental migration... │               │
+│  └──────────────────────────┘  └──────────────────────────┘               │
+│  ┌──────────────────────────┐  ┌──────────────────────────┐               │
+│  │ 🔬 Test Generation        │  │ 📊 Dependency Resolution │               │
+│  │ Automatically generates...│  │ Smart dependency...      │               │
+│  └──────────────────────────┘  └──────────────────────────┘               │
+│                                                                             │
+│  REAL-WORLD RESULTS                                                         │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐                     │
+│  │ Enterprise   │  │ Microservices│  │ Legacy       │                     │
+│  │ 500K+ LOC    │  │ 47 services  │  │ 15 years old │                     │
+│  │ In 3 weeks   │  │ Zero issues  │  │ Java 8→21 6wk│                     │
+│  └──────────────┘  └──────────────┘  └──────────────┘                     │
+│                                                                             │
+│  INTEGRATIONS & TECH STACK                                                  │
+│  [Java 8-21] [Spring Boot] [Maven/Gradle] [JUnit] [Mockito]               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  ★ DETAILED SECTION: SCHEDULER (NEW!)                                      │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │  📅 Scheduler [Beta]                                                │   │
+│  │  Stop wasting time on scheduling coordination...                   │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │  ARCHITECTURE DIAGRAM                                               │   │
+│  │           📅 Calendars                                              │   │
+│  │               │                                                     │   │
+│  │  👥 Teams ── 🧠 AI Engine ── 🌍 Timezones                          │   │
+│  │               │                                                     │   │
+│  │           ⏰ Preferences                                            │   │
+│  │                                                                     │   │
+│  │  [23% fewer conflicts] [8hrs saved] [100% satisfaction]            │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  [Similar structure: Features, Use Cases, Tech Stack]                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  ★ DETAILED SECTION: AGENT STUDIO (NEW!)                                   │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │  🤖 Agent Studio [Preview]                                          │   │
+│  │  Create production-ready AI agents without writing boilerplate...  │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │  ARCHITECTURE DIAGRAM                                               │   │
+│  │  ① ✏️  Design    → Visual workflow builder                         │   │
+│  │  ② 🧪 Test      → Built-in evaluation suite                        │   │
+│  │  ③ 🚀 Deploy    → One-click deployment                             │   │
+│  │  ④ 📊 Monitor   → Real-time analytics                              │   │
+│  │                                                                     │   │
+│  │  SUPPORTED MODELS: [GPT-4] [Claude] [Gemini] [Llama] [Custom]     │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  [Similar structure: Features, Use Cases, Tech Stack]                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  ★ DETAILED SECTION: OBSERVATORY (NEW!)                                    │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │  ✨ Observatory [Preview]                                           │   │
+│  │  Stop drowning in metrics and alerts...                            │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │  ARCHITECTURE DIAGRAM                                               │   │
+│  │  DATA SOURCES                                                       │   │
+│  │  [📊 Metrics] [📝 Logs] [🔗 Traces] [⚠️ Events]                    │   │
+│  │                    ↓                                                │   │
+│  │  AI PROCESSING                                                      │   │
+│  │  [🤖 ML Models] [🔍 Anomaly Detection] [🧠 Root Cause AI]          │   │
+│  │                    ↓                                                │   │
+│  │  INTELLIGENT INSIGHTS                                               │   │
+│  │  [⚡ Instant Alerts] [🎯 Predictions] [💡 Recommendations]         │   │
+│  │                                                                     │   │
+│  │  [12min faster] [67% reduced MTTR] [40% auto-resolved]             │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│  [Similar structure: Features, Use Cases, Tech Stack]                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  CTA SECTION                                                                │
+│  Want early access? [Book a demo]                                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  COMPONENT HIERARCHY
+═══════════════════════════════════════════════════════════════════════════════
+
+src/
+├── app/
+│   ├── page.tsx
+│   │   ├── <Hero />
+│   │   ├── <LogoBar />
+│   │   ├── <ServicesGrid />
+│   │   ├── <ProductShowcase /> ★ NEW
+│   │   │   ├── Tab Navigation
+│   │   │   ├── <UpgradeVisual /> ★ NEW
+│   │   │   ├── <SchedulerVisual /> ★ NEW
+│   │   │   ├── <AgentStudioVisual /> ★ NEW
+│   │   │   └── <ObservatoryVisual /> ★ NEW
+│   │   ├── <FeatureSplit />
+│   │   ├── <ProcessTimeline />
+│   │   ├── <Testimonials />
+│   │   └── <CTABand />
+│   │
+│   └── products/page.tsx ★ REDESIGNED
+│       ├── Header Section
+│       ├── Product Cards (4)
+│       │   ├── <UpgradeAnimation />
+│       │   ├── <SchedulerAnimation />
+│       │   ├── <AgentAnimation />
+│       │   └── <ObservatoryAnimation />
+│       ├── Detailed Sections (4) ★ NEW
+│       │   ├── Product Header
+│       │   ├── <UpgradeDiagram /> ★ NEW
+│       │   ├── Features Grid (2x2)
+│       │   ├── Use Cases Grid (3)
+│       │   └── Tech Stack Badges
+│       └── CTA Section
+│
+└── components/sections/
+    ├── ProductAnimations.tsx
+    │   ├── <UpgradeAnimation />
+    │   ├── <SchedulerAnimation />
+    │   ├── <AgentAnimation />
+    │   ├── <ObservatoryAnimation />
+    │   ├── <UpgradeDiagram /> ★ NEW
+    │   ├── <SchedulerDiagram /> ★ NEW
+    │   ├── <AgentStudioDiagram /> ★ NEW
+    │   └── <ObservatoryDiagram /> ★ NEW
+    │
+    └── ProductShowcase.tsx ★ NEW
+        ├── Main Component
+        ├── <UpgradeVisual />
+        ├── <SchedulerVisual />
+        ├── <AgentStudioVisual />
+        └── <ObservatoryVisual />
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ HOMEPAGE
+   - Added ProductShowcase section with 4 interactive product demos
+
+✅ PRODUCTS PAGE
+   - Enhanced product cards (existing animations)
+   - Added 4 detailed product sections with:
+     • Architecture diagrams
+     • Feature grids (2x2)
+     • Real-world results (3 per product)
+     • Tech stack badges
+
+✅ NEW COMPONENTS (12 total)
+   - 4 Architecture Diagrams (UpgradeDiagram, SchedulerDiagram, etc.)
+   - 4 Visual Demos (UpgradeVisual, SchedulerVisual, etc.)
+   - 1 Showcase Container (ProductShowcase)
+
+✅ DOCUMENTATION (4 files)
+   - DESIGN_IMPROVEMENTS.md
+   - VISUAL_COMPONENTS_GUIDE.md
+   - IMPLEMENTATION_SUMMARY.md
+   - QUICK_START.md
+
+═══════════════════════════════════════════════════════════════════════════════

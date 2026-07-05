@@ -1,0 +1,334 @@
+═══════════════════════════════════════════════════════════════════════════════
+  TPA TECH LABS WEBSITE - COMPLETE SITE MAP
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           NAVIGATION STRUCTURE                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  NAVBAR (Sticky Top)                                                        │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │ [Logo] Services | Products | Work | Blog | About | Contact [Book]  │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  PAGE STRUCTURE
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  1. HOMEPAGE (/)                                                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  ├─ Hero Section                                                            │
+│  │  └─ "Build smarter. Ship faster. Scale confidently."                    │
+│  ├─ Logo Bar (Client logos)                                                 │
+│  ├─ Services Grid (6 services)                                              │
+│  ├─ ★ Product Showcase (NEW - Interactive tabs)                            │
+│  │  ├─ TPA Upgrade visual                                                   │
+│  │  ├─ Scheduler visual                                                     │
+│  │  ├─ Agent Studio visual                                                  │
+│  │  └─ Observatory visual                                                   │
+│  ├─ Feature Split (TPA Upgrade highlight)                                   │
+│  ├─ Process Timeline                                                        │
+│  ├─ Testimonials                                                            │
+│  └─ CTA Band                                                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  2. PRODUCTS PAGE (/products) ★ ENHANCED                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  ├─ Header                                                                  │
+│  │  └─ "Built for engineers, by engineers."                                │
+│  │                                                                           │
+│  ├─ Product Cards (4 - Clickable with animations)                          │
+│  │  ├─ TPA Upgrade [GA]                                                     │
+│  │  │  └─ [Migration progress animation]                                   │
+│  │  ├─ Scheduler [Beta]                                                     │
+│  │  │  └─ [Calendar slots animation]                                       │
+│  │  ├─ Agent Studio [Preview]                                               │
+│  │  │  └─ [Chat interface animation]                                       │
+│  │  └─ Observatory [Preview]                                                │
+│  │     └─ [Metrics dashboard animation]                                    │
+│  │                                                                           │
+│  ├─ ★ DETAILED SECTION: TPA Upgrade                                        │
+│  │  ├─ Product Header (icon, title, description)                           │
+│  │  ├─ Architecture Diagram (4-stage pipeline)                             │
+│  │  ├─ Key Features (2x2 grid)                                             │
+│  │  │  ├─ Automated Refactoring                                            │
+│  │  │  ├─ Zero Downtime Migration                                          │
+│  │  │  ├─ Test Generation                                                  │
+│  │  │  └─ Dependency Resolution                                            │
+│  │  ├─ Real-World Results (3 use cases)                                    │
+│  │  │  ├─ Enterprise Migration (500K+ LOC in 3 weeks)                     │
+│  │  │  ├─ Microservices Fleet (47 services, zero issues)                  │
+│  │  │  └─ Legacy Monolith (15 years old, 6 weeks)                         │
+│  │  └─ Tech Stack (Java 8-21, Spring Boot, Maven, JUnit, Mockito)         │
+│  │                                                                           │
+│  ├─ ★ DETAILED SECTION: Scheduler                                          │
+│  │  ├─ Product Header                                                       │
+│  │  ├─ Architecture Diagram (Hub-and-spoke)                                │
+│  │  ├─ Key Features (2x2 grid)                                             │
+│  │  ├─ Real-World Results (3 use cases)                                    │
+│  │  └─ Tech Stack (Google Calendar, Outlook, Slack, Linear, Jira)         │
+│  │                                                                           │
+│  ├─ ★ DETAILED SECTION: Agent Studio                                       │
+│  │  ├─ Product Header                                                       │
+│  │  ├─ Architecture Diagram (4-step lifecycle)                             │
+│  │  ├─ Key Features (2x2 grid)                                             │
+│  │  ├─ Real-World Results (3 use cases)                                    │
+│  │  └─ Tech Stack (OpenAI, Anthropic, Google AI, LangChain, Vector DBs)   │
+│  │                                                                           │
+│  ├─ ★ DETAILED SECTION: Observatory                                        │
+│  │  ├─ Product Header                                                       │
+│  │  ├─ Architecture Diagram (3-layer stack)                                │
+│  │  ├─ Key Features (2x2 grid)                                             │
+│  │  ├─ Real-World Results (3 use cases)                                    │
+│  │  └─ Tech Stack (Prometheus, Grafana, Datadog, New Relic, OpenTelemetry)│
+│  │                                                                           │
+│  └─ CTA Section ("Want early access?")                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  3. SERVICES PAGE (/services) ★ ENHANCED                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  ├─ Header                                                                  │
+│  │  └─ "Everything you need, nothing you don't."                           │
+│  │                                                                           │
+│  ├─ Service Cards Overview (6 - Click to expand)                           │
+│  │  ├─ Web Development                                                      │
+│  │  ├─ Mobile Apps                                                          │
+│  │  ├─ Cloud & DevOps                                                       │
+│  │  ├─ AI Agents                                                            │
+│  │  ├─ AI Model Training                                                    │
+│  │  └─ Java Modernization                                                   │
+│  │                                                                           │
+│  ├─ ★ DETAILED SECTION: Web Development (when expanded)                    │
+│  │  ├─ Service Header (icon, title, tagline, description)                  │
+│  │  ├─ What We Do (4 capabilities)                                         │
+│  │  │  ├─ Frontend Development                                             │
+│  │  │  ├─ Backend APIs                                                      │
+│  │  │  ├─ Database Design                                                   │
+│  │  │  └─ Performance Optimization                                          │
+│  │  ├─ Real Projects (3 examples)                                           │
+│  │  └─ Deliverables & Pricing                                               │
+│  │     ├─ What You Get (5 items)                                           │
+│  │     ├─ Timeline: 8-16 weeks                                             │
+│  │     └─ Pricing: Starting at $40K                                        │
+│  │                                                                           │
+│  ├─ ★ DETAILED SECTION: AI Agents (when expanded)                          │
+│  │  ├─ Service Header                                                       │
+│  │  ├─ What We Do (4 capabilities)                                         │
+│  │  ├─ ★ TYPES OF AI AGENTS WE BUILD (6 agent types)                      │
+│  │  │  ├─ Code Review Agent                                                │
+│  │  │  │  ├─ Description                                                   │
+│  │  │  │  ├─ Capabilities: Static analysis, Security, Best practices      │
+│  │  │  │  ├─ Build Time: 2-3 weeks                                        │
+│  │  │  │  └─ Results: Caught 47 bugs, 60% faster reviews                 │
+│  │  │  ├─ Support Agent                                                     │
+│  │  │  │  ├─ Description                                                   │
+│  │  │  │  ├─ Capabilities: Triage, Knowledge base, Auto-responses         │
+│  │  │  │  ├─ Build Time: 3-4 weeks                                        │
+│  │  │  │  └─ Results: 85% deflection, $240K saved                         │
+│  │  │  ├─ Data Analysis Agent                                              │
+│  │  │  │  ├─ Description                                                   │
+│  │  │  │  ├─ Capabilities: SQL gen, Charts, Anomaly detection             │
+│  │  │  │  ├─ Build Time: 2-3 weeks                                        │
+│  │  │  │  └─ Results: 40+ reports automated, 70% less work                │
+│  │  │  ├─ DevOps Agent                                                      │
+│  │  │  │  ├─ Description                                                   │
+│  │  │  │  ├─ Capabilities: Log analysis, Metrics, Root cause              │
+│  │  │  │  ├─ Build Time: 3-4 weeks                                        │
+│  │  │  │  └─ Results: 67% reduced MTTR, 40% auto-resolved                 │
+│  │  │  ├─ Documentation Agent                                              │
+│  │  │  │  ├─ Description                                                   │
+│  │  │  │  ├─ Capabilities: Code-to-docs, API docs, Tutorials              │
+│  │  │  │  ├─ Build Time: 2-3 weeks                                        │
+│  │  │  │  └─ Results: Always current, 50% faster onboarding               │
+│  │  │  └─ Testing Agent                                                     │
+│  │  │     ├─ Description                                                   │
+│  │  │     ├─ Capabilities: Test gen, Coverage, Regression                 │
+│  │  │     ├─ Build Time: 3-4 weeks                                        │
+│  │  │     └─ Results: 90%+ coverage, 23 edge cases found                  │
+│  │  ├─ Custom Agent Callout                                                │
+│  │  ├─ Real Projects (3 examples)                                           │
+│  │  └─ Deliverables & Pricing                                               │
+│  │     ├─ Timeline: 2-4 weeks per agent                                   │
+│  │     └─ Pricing: Starting at $15K per agent                             │
+│  │                                                                           │
+│  ├─ [Similar detailed sections for other 4 services]                       │
+│  │                                                                           │
+│  └─ CTA Section ("Not sure which service fits?")                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  4. BLOG PAGE (/blog) ★ NEW                                                │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  ├─ Header                                                                  │
+│  │  └─ "Engineering insights from the field."                              │
+│  │                                                                           │
+│  ├─ Category Filter                                                         │
+│  │  └─ [All] [AI Agents] [Java] [DevOps] [Case Studies]                   │
+│  │                                                                           │
+│  ├─ Blog Posts Grid (3 columns)                                            │
+│  │  ├─ AI Agents vs Chatbots (5 min) ★ FULL ARTICLE                       │
+│  │  ├─ Java 8 to 21 Migration Guide (12 min)                               │
+│  │  ├─ Building Production AI Agents (10 min) ★ FULL ARTICLE              │
+│  │  ├─ Hidden Cost of Legacy Java (7 min)                                  │
+│  │  ├─ 10 AI Agent Use Cases (8 min)                                       │
+│  │  ├─ Spring Boot 3 Migration (15 min)                                    │
+│  │  ├─ GPT-4 vs Claude vs Gemini (9 min)                                   │
+│  │  └─ DevOps for Small Teams (6 min)                                      │
+│  │                                                                           │
+│  └─ Newsletter Signup                                                       │
+│     └─ Email capture form                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  5. BLOG POST PAGE (/blog/[slug]) ★ NEW                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  ├─ Back to Blog Link                                                       │
+│  ├─ Category Badge                                                          │
+│  ├─ Article Title (Large)                                                   │
+│  ├─ Meta Info (Author, Date, Read Time)                                    │
+│  ├─ Article Content                                                         │
+│  │  ├─ Headings (H1, H2, H3)                                               │
+│  │  ├─ Paragraphs                                                           │
+│  │  ├─ Lists                                                                │
+│  │  ├─ Code blocks                                                          │
+│  │  ├─ Blockquotes                                                          │
+│  │  └─ Tables                                                               │
+│  ├─ Tags                                                                    │
+│  └─ CTA Section ("Need help with...")                                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  6. OTHER PAGES (Existing)                                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  ├─ /work - Portfolio/Case Studies                                         │
+│  ├─ /about - About the Team                                                │
+│  ├─ /contact - Contact Form                                                │
+│  └─ /schedule - Book a Call                                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  CONTENT SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  PRODUCTS PAGE                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  Products:           4 (TPA Upgrade, Scheduler, Agent Studio, Observatory) │
+│  Diagrams:           4 (Architecture visualizations)                        │
+│  Features:           16 (4 per product)                                     │
+│  Use Cases:          12 (3 per product)                                     │
+│  Tech Stacks:        4 (5+ technologies each)                              │
+│  Animations:         4 (Live demos)                                         │
+│  Showcase Visuals:   4 (Interactive demos)                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  SERVICES PAGE                                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  Services:           6 (Web, Mobile, Cloud, AI Agents, AI Training, Java)  │
+│  Capabilities:       24 (4 per service)                                     │
+│  AI Agent Types:     6 (Detailed specifications)                            │
+│  Examples:           18 (3 per service)                                     │
+│  Deliverables:       30+ (5+ per service)                                   │
+│  Pricing Info:       6 (Timeline + starting price)                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  BLOG                                                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  Blog Posts:         8 (2 complete, 6 outlines)                            │
+│  Categories:         4 (AI Agents, Java, DevOps, Case Studies)             │
+│  Complete Articles:  2 (3000+ words each)                                  │
+│  Newsletter:         1 (Email capture)                                      │
+│  SEO Metadata:       ✓ (All pages)                                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  NAVIGATION FLOW
+═══════════════════════════════════════════════════════════════════════════════
+
+User Journey 1: Learning About Products
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Homepage → Product Showcase → Products Page → Detailed Section → Schedule │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+User Journey 2: Exploring Services
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Homepage → Services Grid → Services Page → Expand Service → Schedule      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+User Journey 3: Learning About AI Agents
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Services Page → AI Agents → 6 Agent Types → Custom Agent Callout → Call  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+User Journey 4: Reading Blog Content
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Blog Index → Filter by Category → Read Post → Related Articles → Schedule │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+User Journey 5: SEO Entry
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Google Search → Blog Post → CTA → Services/Products → Schedule            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  CONVERSION POINTS
+═══════════════════════════════════════════════════════════════════════════════
+
+Primary CTAs:
+  ✓ Hero Section: "Book a 30-min call"
+  ✓ Product Showcase: Implicit (explore products)
+  ✓ Products Page: "Book a demo" (per product)
+  ✓ Services Page: "Book a call" (bottom CTA)
+  ✓ Blog Posts: "Book a call" (bottom CTA)
+  ✓ Newsletter: Email capture
+
+Secondary CTAs:
+  ✓ "Watch a demo" (Hero)
+  ✓ "Learn more" (Service cards)
+  ✓ "Read the case study" (Feature Split)
+  ✓ "View details" (Service expansion)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  TECHNICAL STACK
+═══════════════════════════════════════════════════════════════════════════════
+
+Framework:     Next.js 16.2.4
+React:         19.2.4
+TypeScript:    5.x
+Styling:       Tailwind CSS 4 + Inline Styles
+Fonts:         Inter, Space Grotesk, JetBrains Mono
+Icons:         Custom Icon component
+Routing:       App Router (Next.js 13+)
+State:         React Hooks (useState, useEffect)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  FILE STATISTICS
+═══════════════════════════════════════════════════════════════════════════════
+
+New Files Created:        7
+Modified Files:           4
+Documentation Files:      7
+Total Lines of Code:      ~5,000
+Total Words of Content:   ~15,000
+Components Created:       20+
+Sections Created:         50+
+
+
+═══════════════════════════════════════════════════════════════════════════════
+  LAST UPDATED: April 21, 2026
+  VERSION: 2.0
+  STATUS: ✅ COMPLETE
+═══════════════════════════════════════════════════════════════════════════════
