@@ -1,23 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import Icon from "@/components/ui/Icon";
-
-/* Animated flowing connector used between diagram stages */
-function FlowConnector({ vertical = false, color = "#00C6FF", length = 48 }: {
-  vertical?: boolean; color?: string; length?: number;
-}) {
-  const w = vertical ? 12 : length;
-  const h = vertical ? length : 12;
-  const d = vertical ? `M6 0 V ${length}` : `M0 6 H ${length}`;
-  return (
-    <svg width={w} height={h} style={{ flexShrink: 0, display: "block" }}>
-      <path d={d} stroke={color} strokeWidth="2" fill="none" opacity="0.55" className="tpa-flow-line" />
-      <circle r="3" fill={color}>
-        <animateMotion dur="1.6s" repeatCount="indefinite" path={d} />
-      </circle>
-    </svg>
-  );
-}
 
 /* ──────────────────────────────────────────
    TPA Upgrade — animated migration progress
@@ -286,38 +268,59 @@ export function UpgradeDiagram() {
       </div>
 
       {/* Flow diagram */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
-        {[
-          { icon: "file" as const, title: "Legacy Code", sub: "Java 8 codebase", color: "#00C6FF" },
-          { icon: "search" as const, title: "AI Analysis", sub: "Pattern detection", color: "#0072FF" },
-          { icon: "zap" as const, title: "Refactoring", sub: "Auto-migration", color: "#7F00FF" },
-          { icon: "check" as const, title: "Modern Code", sub: "Java 21 ready", color: "#10B981" },
-        ].map((step, i, arr) => (
-          <div key={step.title} style={{ display: "contents" }}>
-            <div style={{ flex: 1, textAlign: "center" }}>
-              <div style={{
-                width: 80, height: 80, margin: "0 auto", borderRadius: 16,
-                background: `${step.color}14`, border: `2px solid ${step.color}55`,
-                display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12,
-                color: step.color, boxShadow: `0 0 24px ${step.color}22`,
-                animation: "tpa-pulse 2.8s ease-in-out infinite", animationDelay: `${i * 0.4}s`,
-              }}>
-                <Icon name={step.icon} size={32} />
-              </div>
-              <div style={{ fontSize: 14, fontWeight: 700, color: "white", marginBottom: 4 }}>{step.title}</div>
-              <div style={{ fontSize: 11, color: "#64748B" }}>{step.sub}</div>
-            </div>
-            {i < arr.length - 1 && <FlowConnector color={step.color} />}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
+        {/* Step 1 */}
+        <div style={{ flex: 1, textAlign: "center" }}>
+          <div style={{ width: 80, height: 80, margin: "0 auto", borderRadius: 16, background: "rgba(0,198,255,0.1)", border: "2px solid rgba(0,198,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
+            <span style={{ fontSize: 32 }}>📁</span>
           </div>
-        ))}
+          <div style={{ fontSize: 14, fontWeight: 700, color: "white", marginBottom: 4 }}>Legacy Code</div>
+          <div style={{ fontSize: 11, color: "#64748B" }}>Java 8 codebase</div>
+        </div>
+
+        {/* Arrow */}
+        <div style={{ color: "#00C6FF", fontSize: 24 }}>→</div>
+
+        {/* Step 2 */}
+        <div style={{ flex: 1, textAlign: "center" }}>
+          <div style={{ width: 80, height: 80, margin: "0 auto", borderRadius: 16, background: "rgba(0,114,255,0.1)", border: "2px solid rgba(0,114,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
+            <span style={{ fontSize: 32 }}>🤖</span>
+          </div>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "white", marginBottom: 4 }}>AI Analysis</div>
+          <div style={{ fontSize: 11, color: "#64748B" }}>Pattern detection</div>
+        </div>
+
+        {/* Arrow */}
+        <div style={{ color: "#00C6FF", fontSize: 24 }}>→</div>
+
+        {/* Step 3 */}
+        <div style={{ flex: 1, textAlign: "center" }}>
+          <div style={{ width: 80, height: 80, margin: "0 auto", borderRadius: 16, background: "rgba(127,0,255,0.1)", border: "2px solid rgba(127,0,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
+            <span style={{ fontSize: 32 }}>⚡</span>
+          </div>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "white", marginBottom: 4 }}>Refactoring</div>
+          <div style={{ fontSize: 11, color: "#64748B" }}>Auto-migration</div>
+        </div>
+
+        {/* Arrow */}
+        <div style={{ color: "#00C6FF", fontSize: 24 }}>→</div>
+
+        {/* Step 4 */}
+        <div style={{ flex: 1, textAlign: "center" }}>
+          <div style={{ width: 80, height: 80, margin: "0 auto", borderRadius: 16, background: "rgba(16,185,129,0.1)", border: "2px solid rgba(16,185,129,0.3)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
+            <span style={{ fontSize: 32 }}>✓</span>
+          </div>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "white", marginBottom: 4 }}>Modern Code</div>
+          <div style={{ fontSize: 11, color: "#64748B" }}>Java 21 ready</div>
+        </div>
       </div>
 
       {/* Features list */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16, marginTop: 16 }}>
         {[
-          { icon: "search" as const, label: "AST Analysis" },
-          { icon: "flask" as const, label: "Test Generation" },
-          { icon: "package" as const, label: "Dependency Updates" },
+          { icon: "🔍", label: "AST Analysis" },
+          { icon: "🧪", label: "Test Generation" },
+          { icon: "📦", label: "Dependency Updates" },
         ].map((item, i) => (
           <div key={i} style={{
             padding: 16,
@@ -326,9 +329,7 @@ export function UpgradeDiagram() {
             borderRadius: 12,
             textAlign: "center",
           }}>
-            <div style={{ width: 40, height: 40, margin: "0 auto 8px", borderRadius: 10, background: "rgba(0,198,255,0.1)", border: "1px solid rgba(0,198,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center", color: "#00C6FF" }}>
-              <Icon name={item.icon} size={20} />
-            </div>
+            <div style={{ fontSize: 24, marginBottom: 8 }}>{item.icon}</div>
             <div style={{ fontSize: 12, color: "#A8C8F0", fontWeight: 600 }}>{item.label}</div>
           </div>
         ))}
@@ -354,31 +355,7 @@ export function SchedulerDiagram() {
       </div>
 
       {/* Central hub diagram */}
-      <div style={{ position: "relative", height: 300, display: "flex", alignItems: "center", justifyContent: "center" }}>
-        {/* Orbit ring + flowing spokes */}
-        <svg viewBox="0 0 300 300" style={{ position: "absolute", top: "50%", left: "50%", width: 300, height: 300, marginLeft: -150, marginTop: -150, pointerEvents: "none", overflow: "visible" }}>
-          <circle cx="150" cy="150" r="128" fill="none" stroke="rgba(0,198,255,0.12)" strokeDasharray="3 8" className="tpa-orbit-1" style={{ transformOrigin: "150px 150px" }} />
-          {[
-            { angle: 0, color: "#00C6FF" },
-            { angle: 72, color: "#0072FF" },
-            { angle: 144, color: "#7F00FF" },
-            { angle: 216, color: "#AE75FF" },
-            { angle: 288, color: "#10B981" },
-          ].map((node, i) => {
-            const x = Math.cos((node.angle - 90) * Math.PI / 180) * 110;
-            const y = Math.sin((node.angle - 90) * Math.PI / 180) * 110;
-            const d = `M150 150 L ${150 + x} ${150 + y}`;
-            return (
-              <g key={i}>
-                <path d={d} stroke={node.color} strokeWidth="1.5" opacity="0.4" className="tpa-flow-slow" fill="none" />
-                <circle r="2.5" fill={node.color}>
-                  <animateMotion dur={`${2 + i * 0.35}s`} begin={`${i * 0.4}s`} repeatCount="indefinite" path={d} />
-                </circle>
-              </g>
-            );
-          })}
-        </svg>
-
+      <div style={{ position: "relative", height: 280, display: "flex", alignItems: "center", justifyContent: "center" }}>
         {/* Center node */}
         <div style={{
           position: "absolute",
@@ -392,49 +369,67 @@ export function SchedulerDiagram() {
           justifyContent: "center",
           boxShadow: "0 0 40px rgba(0,198,255,0.4)",
           zIndex: 10,
-          gap: 6,
-          animation: "tpa-glow 3s ease-in-out infinite",
         }}>
-          <Icon name="cpu" size={30} style={{ color: "white" }} />
+          <span style={{ fontSize: 32, marginBottom: 4 }}>🧠</span>
           <span style={{ fontSize: 12, fontWeight: 700, color: "white" }}>AI Engine</span>
         </div>
 
         {/* Surrounding nodes */}
         {[
-          { icon: "calendar" as const, label: "Calendars", angle: 0, color: "#00C6FF" },
-          { icon: "globe" as const, label: "Timezones", angle: 72, color: "#0072FF" },
-          { icon: "users" as const, label: "Teams", angle: 144, color: "#7F00FF" },
-          { icon: "clock" as const, label: "Preferences", angle: 216, color: "#AE75FF" },
-          { icon: "chart" as const, label: "Analytics", angle: 288, color: "#10B981" },
+          { icon: "📅", label: "Calendars", angle: 0, color: "#00C6FF" },
+          { icon: "🌍", label: "Timezones", angle: 72, color: "#0072FF" },
+          { icon: "👥", label: "Teams", angle: 144, color: "#7F00FF" },
+          { icon: "⏰", label: "Preferences", angle: 216, color: "#AE75FF" },
+          { icon: "📊", label: "Analytics", angle: 288, color: "#10B981" },
         ].map((node, i) => {
           const radius = 110;
           const x = Math.cos((node.angle - 90) * Math.PI / 180) * radius;
           const y = Math.sin((node.angle - 90) * Math.PI / 180) * radius;
 
           return (
-            <div key={i} style={{
-              position: "absolute",
-              width: 72,
-              height: 72,
-              borderRadius: "50%",
-              background: "#0A0E1A",
-              border: `2px solid ${node.color}`,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 3,
-              left: `calc(50% + ${x}px)`,
-              top: `calc(50% + ${y}px)`,
-              transform: "translate(-50%, -50%)",
-              color: node.color,
-              boxShadow: `0 0 18px ${node.color}33`,
-              animation: "tpa-glow 3.4s ease-in-out infinite",
-              animationDelay: `${i * 0.5}s`,
-              zIndex: 5,
-            }}>
-              <Icon name={node.icon} size={20} />
-              <span style={{ fontSize: 9, color: "#A8C8F0", fontWeight: 600 }}>{node.label}</span>
+            <div key={i}>
+              {/* Connection line */}
+              <svg style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                width: 240,
+                height: 240,
+                marginLeft: -120,
+                marginTop: -120,
+                pointerEvents: "none",
+              }}>
+                <line
+                  x1="120"
+                  y1="120"
+                  x2={120 + x}
+                  y2={120 + y}
+                  stroke={node.color}
+                  strokeWidth="2"
+                  strokeDasharray="4 4"
+                  opacity="0.3"
+                />
+              </svg>
+
+              {/* Node */}
+              <div style={{
+                position: "absolute",
+                width: 70,
+                height: 70,
+                borderRadius: "50%",
+                background: "rgba(255,255,255,0.05)",
+                border: `2px solid ${node.color}`,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                left: `calc(50% + ${x}px)`,
+                top: `calc(50% + ${y}px)`,
+                transform: "translate(-50%, -50%)",
+              }}>
+                <span style={{ fontSize: 20, marginBottom: 2 }}>{node.icon}</span>
+                <span style={{ fontSize: 9, color: "#A8C8F0", fontWeight: 600 }}>{node.label}</span>
+              </div>
             </div>
           );
         })}
@@ -480,73 +475,59 @@ export function AgentStudioDiagram() {
       </div>
 
       {/* Workflow stages */}
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
         {[
-          { stage: "Design", icon: "code" as const, desc: "Visual workflow builder", color: "#00C6FF" },
-          { stage: "Test", icon: "flask" as const, desc: "Built-in evaluation suite", color: "#0072FF" },
-          { stage: "Deploy", icon: "rocket" as const, desc: "One-click deployment", color: "#7F00FF" },
-          { stage: "Monitor", icon: "chart" as const, desc: "Real-time analytics", color: "#AE75FF" },
-        ].map((step, i, arr) => (
-          <div key={i}>
-            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-              {/* Step number */}
-              <div style={{
-                width: 40,
-                height: 40,
-                borderRadius: "50%",
-                background: step.color,
-                color: "white",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 16,
-                fontWeight: 700,
-                flexShrink: 0,
-                boxShadow: `0 0 18px ${step.color}55`,
-                animation: "tpa-glow 3s ease-in-out infinite",
-                animationDelay: `${i * 0.4}s`,
-              }}>
-                {i + 1}
-              </div>
+          { stage: "Design", icon: "✏️", desc: "Visual workflow builder", color: "#00C6FF" },
+          { stage: "Test", icon: "🧪", desc: "Built-in evaluation suite", color: "#0072FF" },
+          { stage: "Deploy", icon: "🚀", desc: "One-click deployment", color: "#7F00FF" },
+          { stage: "Monitor", icon: "📊", desc: "Real-time analytics", color: "#AE75FF" },
+        ].map((step, i) => (
+          <div key={i} style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            {/* Step number */}
+            <div style={{
+              width: 40,
+              height: 40,
+              borderRadius: "50%",
+              background: step.color,
+              color: "white",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 16,
+              fontWeight: 700,
+              flexShrink: 0,
+            }}>
+              {i + 1}
+            </div>
 
-              {/* Step content */}
+            {/* Step content */}
+            <div style={{
+              flex: 1,
+              padding: 20,
+              background: "rgba(255,255,255,0.03)",
+              border: `1px solid ${step.color}40`,
+              borderRadius: 12,
+              display: "flex",
+              alignItems: "center",
+              gap: 16,
+            }}>
+              <span style={{ fontSize: 28 }}>{step.icon}</span>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 16, fontWeight: 700, color: "white", marginBottom: 4 }}>{step.stage}</div>
+                <div style={{ fontSize: 12, color: "#64748B" }}>{step.desc}</div>
+              </div>
               <div style={{
-                flex: 1,
-                padding: 20,
-                background: "rgba(255,255,255,0.03)",
+                padding: "4px 12px",
+                background: `${step.color}20`,
                 border: `1px solid ${step.color}40`,
-                borderRadius: 12,
-                display: "flex",
-                alignItems: "center",
-                gap: 16,
+                borderRadius: 6,
+                fontSize: 10,
+                fontWeight: 700,
+                color: step.color,
               }}>
-                <div style={{
-                  width: 48, height: 48, borderRadius: 12, flexShrink: 0,
-                  background: `${step.color}18`, border: `1px solid ${step.color}45`,
-                  display: "flex", alignItems: "center", justifyContent: "center", color: step.color,
-                }}>
-                  <Icon name={step.icon} size={24} />
-                </div>
-                <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: 16, fontWeight: 700, color: "white", marginBottom: 4 }}>{step.stage}</div>
-                  <div style={{ fontSize: 12, color: "#64748B" }}>{step.desc}</div>
-                </div>
-                <div style={{
-                  width: 26, height: 26, borderRadius: 8,
-                  background: `${step.color}20`,
-                  border: `1px solid ${step.color}40`,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  color: step.color,
-                }}>
-                  <Icon name={i < 3 ? "arrow" : "check"} size={13} stroke={2.5} />
-                </div>
+                {i < 3 ? "→" : "✓"}
               </div>
             </div>
-            {i < arr.length - 1 && (
-              <div style={{ paddingLeft: 14, height: 24 }}>
-                <FlowConnector vertical color={step.color} length={24} />
-              </div>
-            )}
           </div>
         ))}
       </div>
@@ -603,10 +584,10 @@ export function ObservatoryDiagram() {
           <div style={{ fontSize: 11, color: "#64748B", marginBottom: 8, fontWeight: 700, letterSpacing: "0.1em" }}>DATA SOURCES</div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 12 }}>
             {[
-              { icon: "chart" as const, label: "Metrics" },
-              { icon: "file" as const, label: "Logs" },
-              { icon: "link" as const, label: "Traces" },
-              { icon: "alert" as const, label: "Events" },
+              { icon: "📊", label: "Metrics" },
+              { icon: "📝", label: "Logs" },
+              { icon: "🔗", label: "Traces" },
+              { icon: "⚠️", label: "Events" },
             ].map((source, i) => (
               <div key={i} style={{
                 padding: 16,
@@ -615,19 +596,15 @@ export function ObservatoryDiagram() {
                 borderRadius: 10,
                 textAlign: "center",
               }}>
-                <div style={{ width: 40, height: 40, margin: "0 auto 6px", borderRadius: 10, background: "rgba(148,163,184,0.12)", display: "flex", alignItems: "center", justifyContent: "center", color: "#94A3B8", animation: "tpa-glow 3s ease-in-out infinite", animationDelay: `${i * 0.3}s` }}>
-                  <Icon name={source.icon} size={20} />
-                </div>
+                <div style={{ fontSize: 24, marginBottom: 6 }}>{source.icon}</div>
                 <div style={{ fontSize: 11, color: "#94A3B8", fontWeight: 600 }}>{source.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Flow down */}
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <FlowConnector vertical length={28} />
-        </div>
+        {/* Arrow down */}
+        <div style={{ textAlign: "center", color: "#00C6FF", fontSize: 20 }}>↓</div>
 
         {/* Layer 2: AI Processing */}
         <div>
@@ -642,33 +619,29 @@ export function ObservatoryDiagram() {
             justifyContent: "space-around",
           }}>
             {[
-              { icon: "cpu" as const, label: "ML Models" },
-              { icon: "search" as const, label: "Anomaly Detection" },
-              { icon: "target" as const, label: "Root Cause AI" },
+              { icon: "🤖", label: "ML Models" },
+              { icon: "🔍", label: "Anomaly Detection" },
+              { icon: "🧠", label: "Root Cause AI" },
             ].map((proc, i) => (
               <div key={i} style={{ textAlign: "center" }}>
-                <div style={{ width: 48, height: 48, margin: "0 auto 6px", borderRadius: 12, background: "rgba(0,198,255,0.12)", border: "1px solid rgba(0,198,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", color: "#00C6FF", animation: "tpa-pulse 2.6s ease-in-out infinite", animationDelay: `${i * 0.4}s` }}>
-                  <Icon name={proc.icon} size={24} />
-                </div>
+                <div style={{ fontSize: 28, marginBottom: 6 }}>{proc.icon}</div>
                 <div style={{ fontSize: 12, color: "#00C6FF", fontWeight: 700 }}>{proc.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Flow down */}
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <FlowConnector vertical length={28} color="#10B981" />
-        </div>
+        {/* Arrow down */}
+        <div style={{ textAlign: "center", color: "#00C6FF", fontSize: 20 }}>↓</div>
 
         {/* Layer 3: Insights */}
         <div>
           <div style={{ fontSize: 11, color: "#64748B", marginBottom: 8, fontWeight: 700, letterSpacing: "0.1em" }}>INTELLIGENT INSIGHTS</div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
             {[
-              { icon: "zap" as const, label: "Instant Alerts", color: "#EF4444" },
-              { icon: "target" as const, label: "Predictions", color: "#F59E0B" },
-              { icon: "bulb" as const, label: "Recommendations", color: "#10B981" },
+              { icon: "⚡", label: "Instant Alerts", color: "#EF4444" },
+              { icon: "🎯", label: "Predictions", color: "#F59E0B" },
+              { icon: "💡", label: "Recommendations", color: "#10B981" },
             ].map((insight, i) => (
               <div key={i} style={{
                 padding: 16,
@@ -677,9 +650,7 @@ export function ObservatoryDiagram() {
                 borderRadius: 10,
                 textAlign: "center",
               }}>
-                <div style={{ width: 40, height: 40, margin: "0 auto 6px", borderRadius: 10, background: `${insight.color}18`, display: "flex", alignItems: "center", justifyContent: "center", color: insight.color, animation: "tpa-glow 3.2s ease-in-out infinite", animationDelay: `${i * 0.35}s` }}>
-                  <Icon name={insight.icon} size={20} />
-                </div>
+                <div style={{ fontSize: 24, marginBottom: 6 }}>{insight.icon}</div>
                 <div style={{ fontSize: 11, color: insight.color, fontWeight: 700 }}>{insight.label}</div>
               </div>
             ))}
