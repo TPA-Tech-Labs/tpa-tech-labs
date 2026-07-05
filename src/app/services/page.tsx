@@ -1,7 +1,6 @@
 "use client";
 import Icon from "@/components/ui/Icon";
 import Link from "next/link";
-import { useState } from "react";
 
 const SERVICES = [
   {
@@ -219,9 +218,53 @@ const SERVICES = [
   },
 ] as const;
 
-export default function ServicesPage() {
-  const [expandedService, setExpandedService] = useState<string | null>(null);
+/* Brand artwork + long-form explanation shown in each service section */
+const SERVICE_MEDIA: Record<string, { image: string; details: string[] }> = {
+  "web-development": {
+    image: "/brand/service-web-development.svg",
+    details: [
+      "Every build starts with the unglamorous questions: who uses this, how many of them, and what breaks first under load. We design the architecture around those answers — then ship in weekly, deployable increments so you see real software from week one, not a big reveal at the end.",
+      "The stack is TypeScript end-to-end: Next.js on the front, Node or Python services behind an API layer, PostgreSQL for data. Every project gets preview deployments on each pull request, automated tests in CI, and performance budgets enforced before launch — sub-second loads aren't a stretch goal, they're the default.",
+    ],
+  },
+  "mobile-apps": {
+    image: "/brand/service-mobile-apps.svg",
+    details: [
+      "Cross-platform or native is a measurement, not a preference. If your app is mostly screens and data, React Native gets you iOS and Android from one codebase at half the cost. If it leans on heavy animation, background processing, or device hardware, we go Swift and Kotlin. We prototype the riskiest screen first and let the numbers decide.",
+      "Shipping the app is half the job — the other half is release engineering. We handle App Store and Play Store submissions, phased rollouts, crash reporting, and over-the-air updates for React Native, so a fix reaches users in hours instead of waiting on store review.",
+    ],
+  },
+  "cloud-devops": {
+    image: "/brand/service-cloud-devops.svg",
+    details: [
+      "Everything is infrastructure as code from the first commit: Terraform modules, identical staging and production environments, secrets in a managed vault — never in a wiki. Anyone on your team can see exactly what's running and why, and every change is reviewed like application code.",
+      "We pick Kubernetes only when the workload earns it; plenty of systems run better (and cheaper) on managed services or serverless. Either way you get observability wired in from day one — metrics, traces, and alerts that page a human only when something is actually wrong — plus cost budgets and runbooks your team can operate without us.",
+    ],
+  },
+  "ai-agents": {
+    image: "/brand/service-ai-agents.svg",
+    details: [
+      "An agent is only useful if it can act — read the ticket, query the database, open the pull request, post the summary. We build agents wired directly into your systems with scoped permissions and full audit logs, so every action the agent takes is visible, reviewable, and reversible.",
+      "Before an agent touches production, it passes an evaluation suite built from your real historical data — actual tickets, actual PRs — and anything below the confidence bar escalates to a human. For sensitive data we deploy fully on-premise, so nothing leaves your infrastructure.",
+    ],
+  },
+  "ai-training": {
+    image: "/brand/service-ai-model-training.svg",
+    details: [
+      "We start with evals, not training runs. First we define what \"good\" means for your use case as a measurable test set — then let the evidence pick the approach. Often a well-built RAG system beats a fine-tune at a tenth of the cost; when fine-tuning wins, we know exactly how much it wins by.",
+      "What you get is a production system, not a notebook: versioned datasets and models, a training pipeline you can re-run, an inference endpoint with monitoring, and drift detection that tells you when the model needs retraining — before your users do.",
+    ],
+  },
+  "java-modernization": {
+    image: "/brand/service-java-modernization.svg",
+    details: [
+      "Our AI toolchain parses your entire codebase into an AST and maps every deprecated API, unsafe pattern, and outdated dependency before we change a line. The migration then lands as small, reviewable pull-request batches — with generated tests locking in existing behavior — so your team stays in control the whole way.",
+      "A typical engagement takes Java 8 to 21 and Spring Boot to 3.x with zero production downtime, at roughly six weeks per 500K lines. You also get a migration report documenting every transformation, so audits and future upgrades aren't archaeology.",
+    ],
+  },
+};
 
+export default function ServicesPage() {
   return (
     <>
       {/* Header */}
@@ -242,21 +285,22 @@ export default function ServicesPage() {
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16 }}>
             {SERVICES.map((s) => (
-              <button
+              <a
                 key={s.id}
-                onClick={() => setExpandedService(expandedService === s.id ? null : s.id)}
+                href={`#${s.id}`}
                 style={{
                   background: "white",
-                  border: expandedService === s.id ? "2px solid #0072FF" : "1px solid #E2E8F0",
+                  border: "1px solid #E2E8F0",
                   borderRadius: 16,
                   padding: 28,
                   display: "flex",
                   gap: 20,
                   alignItems: "flex-start",
-                  boxShadow: expandedService === s.id ? "0 8px 24px rgba(0,114,255,0.15)" : "0 1px 3px rgba(15,26,46,0.04)",
+                  boxShadow: "0 1px 3px rgba(15,26,46,0.04)",
                   transition: "all 200ms",
                   cursor: "pointer",
                   textAlign: "left",
+                  textDecoration: "none",
                 }}
               >
                 <div style={{ width: 56, height: 56, borderRadius: 14, background: "linear-gradient(135deg,#EBF5FF,#D6EBFF)", display: "flex", alignItems: "center", justifyContent: "center", color: "#0072FF", flexShrink: 0 }}>
@@ -270,10 +314,10 @@ export default function ServicesPage() {
                     {s.stack}
                   </div>
                   <div style={{ fontSize: 14, color: "#0072FF", marginTop: 12, fontWeight: 600 }}>
-                    {expandedService === s.id ? "Hide details ↑" : "View details →"}
+                    View details ↓
                   </div>
                 </div>
-              </button>
+              </a>
             ))}
           </div>
         </div>
@@ -281,30 +325,65 @@ export default function ServicesPage() {
 
       {/* Detailed Service Sections */}
       {SERVICES.map((service, idx) => (
-        expandedService === service.id && (
           <section
             key={service.id}
             id={service.id}
             style={{
               padding: "100px 32px",
               background: idx % 2 === 0 ? "linear-gradient(160deg,#EAF4FF 0%,#F8F0FF 55%,#E9FAFF 100%)" : "linear-gradient(160deg,#FFFFFF 0%,#EFF7FF 55%,#F7F0FF 100%)",
+              scrollMarginTop: 80,
             }}
           >
             <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-              {/* Service Header */}
-              <div style={{ marginBottom: 48 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 16 }}>
-                  <div style={{ width: 64, height: 64, borderRadius: 16, background: "linear-gradient(135deg,#00C6FF,#0072FF)", display: "flex", alignItems: "center", justifyContent: "center", color: "white" }}>
-                    <Icon name={service.icon} size={32} />
+              {/* Service Header: explanation + brand artwork */}
+              <div className="service-header-grid" style={{ display: "grid", gridTemplateColumns: "1.15fr 1fr", gap: 48, alignItems: "center", marginBottom: 56 }}>
+                <div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 16 }}>
+                    <div style={{ width: 64, height: 64, borderRadius: 16, background: "linear-gradient(135deg,#00C6FF,#0072FF)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", flexShrink: 0 }}>
+                      <Icon name={service.icon} size={32} />
+                    </div>
+                    <div>
+                      <h2 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 42, fontWeight: 700, color: "#0F1A2E", margin: 0, letterSpacing: "-0.025em" }}>
+                        {service.title}
+                      </h2>
+                      <p style={{ fontSize: 18, color: "#0072FF", margin: "4px 0 0", fontWeight: 600 }}>{service.tagline}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h2 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 42, fontWeight: 700, color: "#0F1A2E", margin: 0, letterSpacing: "-0.025em" }}>
-                      {service.title}
-                    </h2>
-                    <p style={{ fontSize: 18, color: "#0072FF", margin: "4px 0 0", fontWeight: 600 }}>{service.tagline}</p>
+                  <p style={{ fontSize: 18, color: "#475569", lineHeight: 1.6 }}>{service.description}</p>
+                  {SERVICE_MEDIA[service.id]?.details.map((para) => (
+                    <p key={para.slice(0, 32)} style={{ fontSize: 15.5, color: "#475569", lineHeight: 1.75, marginTop: 16 }}>
+                      {para}
+                    </p>
+                  ))}
+                </div>
+                <div style={{
+                  background: "linear-gradient(135deg,#0A0E1A,#0D1528)",
+                  border: "1px solid rgba(0,198,255,0.2)",
+                  borderRadius: 20,
+                  padding: "48px 32px",
+                  boxShadow: "0 20px 60px -16px rgba(0,114,255,0.25)",
+                  position: "relative",
+                  overflow: "hidden",
+                  alignSelf: "start",
+                }}>
+                  <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(168,200,240,0.07) 1px, transparent 1px)", backgroundSize: "16px 16px", pointerEvents: "none" }} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={SERVICE_MEDIA[service.id]?.image}
+                    alt={`${service.title} — TPA Tech Labs`}
+                    style={{ width: "100%", height: "auto", display: "block", position: "relative" }}
+                  />
+                  <div style={{ position: "relative", marginTop: 28, paddingTop: 20, borderTop: "1px solid rgba(168,200,240,0.15)", display: "flex", justifyContent: "space-between", gap: 16 }}>
+                    <div>
+                      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", color: "#64748B", marginBottom: 4 }}>TIMELINE</div>
+                      <div style={{ fontSize: 15, fontWeight: 700, color: "#00C6FF", fontFamily: "'Space Grotesk',sans-serif" }}>{service.timeline}</div>
+                    </div>
+                    <div style={{ textAlign: "right" }}>
+                      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", color: "#64748B", marginBottom: 4 }}>PRICING</div>
+                      <div style={{ fontSize: 15, fontWeight: 700, color: "white", fontFamily: "'Space Grotesk',sans-serif" }}>{service.pricing}</div>
+                    </div>
                   </div>
                 </div>
-                <p style={{ fontSize: 18, color: "#475569", lineHeight: 1.6, maxWidth: 800 }}>{service.description}</p>
               </div>
 
               {/* Capabilities Grid */}
@@ -446,7 +525,6 @@ export default function ServicesPage() {
               </div>
             </div>
           </section>
-        )
       ))}
 
       {/* CTA Section */}

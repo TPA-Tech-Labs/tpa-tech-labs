@@ -382,6 +382,14 @@
   }
 }
 
+/* Services page: stack explanation + artwork on small screens */
+@media (max-width: 900px) {
+  .service-header-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+
 /* Hide on mobile */
 .hide-mobile {
   display: none;
