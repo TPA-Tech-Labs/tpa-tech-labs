@@ -24,7 +24,6 @@ const SERVICES = [
       "Performance monitoring",
     ],
     timeline: "8-16 weeks for MVP",
-    pricing: "Starting at $40K",
     examples: [
       { title: "SaaS Platform", desc: "Multi-tenant B2B platform with 10K+ users" },
       { title: "E-commerce Site", desc: "Custom storefront with payment integration" },
@@ -52,7 +51,6 @@ const SERVICES = [
       "CI/CD for mobile releases",
     ],
     timeline: "10-20 weeks for MVP",
-    pricing: "Starting at $50K",
     examples: [
       { title: "Fitness App", desc: "Workout tracking with 50K+ active users" },
       { title: "Delivery Platform", desc: "Real-time GPS tracking and order management" },
@@ -80,7 +78,6 @@ const SERVICES = [
       "Documentation and runbooks",
     ],
     timeline: "4-8 weeks",
-    pricing: "Starting at $25K",
     examples: [
       { title: "Microservices Platform", desc: "Kubernetes cluster with 50+ services" },
       { title: "Data Pipeline", desc: "ETL processing 1TB+ daily" },
@@ -153,7 +150,6 @@ const SERVICES = [
       "Documentation and maintenance guide",
     ],
     timeline: "2-4 weeks per agent",
-    pricing: "Starting at $15K per agent",
     examples: [
       { title: "Code Review Agent", desc: "Reviews 100% of PRs, caught 47 bugs pre-merge" },
       { title: "Support Agent", desc: "85% ticket deflection, saved $240K/year" },
@@ -181,7 +177,6 @@ const SERVICES = [
       "Monitoring and retraining setup",
     ],
     timeline: "6-12 weeks",
-    pricing: "Starting at $35K",
     examples: [
       { title: "Legal Document Analysis", desc: "Fine-tuned model for contract review" },
       { title: "Customer Support RAG", desc: "Answers from 10K+ support tickets" },
@@ -209,7 +204,6 @@ const SERVICES = [
       "CI/CD pipeline updates",
     ],
     timeline: "6 weeks for 500K LOC",
-    pricing: "Starting at $30K",
     examples: [
       { title: "Enterprise Monolith", desc: "500K LOC migrated in 3 weeks" },
       { title: "Microservices Fleet", desc: "47 services upgraded, zero production issues" },
@@ -373,15 +367,9 @@ export default function ServicesPage() {
                     alt={`${service.title} — TPA Tech Labs`}
                     style={{ width: "100%", height: "auto", display: "block", position: "relative" }}
                   />
-                  <div style={{ position: "relative", marginTop: 28, paddingTop: 20, borderTop: "1px solid rgba(168,200,240,0.15)", display: "flex", justifyContent: "space-between", gap: 16 }}>
-                    <div>
-                      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", color: "#64748B", marginBottom: 4 }}>TIMELINE</div>
-                      <div style={{ fontSize: 15, fontWeight: 700, color: "#00C6FF", fontFamily: "'Space Grotesk',sans-serif" }}>{service.timeline}</div>
-                    </div>
-                    <div style={{ textAlign: "right" }}>
-                      <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", color: "#64748B", marginBottom: 4 }}>PRICING</div>
-                      <div style={{ fontSize: 15, fontWeight: 700, color: "white", fontFamily: "'Space Grotesk',sans-serif" }}>{service.pricing}</div>
-                    </div>
+                  <div style={{ position: "relative", marginTop: 28, paddingTop: 20, borderTop: "1px solid rgba(168,200,240,0.15)", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
+                    <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", color: "#64748B" }}>TIMELINE</div>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: "#00C6FF", fontFamily: "'Space Grotesk',sans-serif" }}>{service.timeline}</div>
                   </div>
                 </div>
               </div>
@@ -493,7 +481,7 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              {/* Deliverables & Pricing */}
+              {/* Deliverables & Timeline */}
               <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 32 }}>
                 <div>
                   <h3 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 20, fontWeight: 700, color: "#0F1A2E", marginBottom: 16 }}>
@@ -516,10 +504,9 @@ export default function ServicesPage() {
                     <div style={{ fontSize: 24, fontWeight: 700, color: "#0F1A2E", marginBottom: 16, fontFamily: "'Space Grotesk',sans-serif" }}>
                       {service.timeline}
                     </div>
-                    <div style={{ fontSize: 12, fontWeight: 700, color: "#0048A8", marginBottom: 8, letterSpacing: "0.1em" }}>PRICING</div>
-                    <div style={{ fontSize: 20, fontWeight: 700, color: "#0F1A2E", fontFamily: "'Space Grotesk',sans-serif" }}>
-                      {service.pricing}
-                    </div>
+                    <p style={{ fontSize: 13, color: "#334155", lineHeight: 1.6, margin: 0 }}>
+                      Every project is scoped individually — <Link href="/schedule" style={{ color: "#0072FF", fontWeight: 600 }}>book a free call</Link> for an estimate.
+                    </p>
                   </div>
                 </div>
               </div>

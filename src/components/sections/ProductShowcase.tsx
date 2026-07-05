@@ -320,7 +320,7 @@ function AgentStudioVisual() {
                     { label: "Agents deployed", value: "47" },
                     { label: "Avg response time", value: "1.2s" },
                     { label: "Success rate", value: "99.8%" },
-                    { label: "Cost per run", value: "$0.03" },
+                    { label: "Tools connected", value: "30+" },
                 ].map((metric, i) => (
                     <div key={i} style={{ padding: 16, background: "rgba(127,0,255,0.08)", border: "1px solid rgba(127,0,255,0.2)", borderRadius: 10 }}>
                         <div style={{ fontSize: 20, fontWeight: 700, color: "#AE75FF", fontFamily: "'Space Grotesk',sans-serif" }}>{metric.value}</div>

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const TEAM_VALUES = [
   { icon:"code",    title:"Engineers first",    desc:"We don't have account managers. The person you talk to writes code. Every engagement starts with a technical conversation." },
-  { icon:"shield",  title:"Fixed scope honesty", desc:"If something will take 6 weeks and $80k, we say 6 weeks and $80k — not 3 weeks and then two \"change requests\"." },
+  { icon:"shield",  title:"Fixed scope honesty", desc:"If something will take 6 weeks, we say 6 weeks — not 3 weeks and then two \"change requests\"." },
   { icon:"sparkle", title:"Ship or it didn't happen", desc:"We measure success in deployed features, not story points closed. No demo-only deliverables." },
   { icon:"git",     title:"Boring tech stack",   desc:"We reach for battle-tested tools. Not because we can't learn new ones, but because we're accountable for what we ship." },
 ];
