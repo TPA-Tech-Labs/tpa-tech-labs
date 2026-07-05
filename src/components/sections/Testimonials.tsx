@@ -1,7 +1,7 @@
 const ITEMS = [
-  { q:"They migrated our Java 8 monolith to 21 in 5 weeks. Our team spent two years trying.", a:"Priya Raman",  r:"VP Engineering, Trivally", initials:"PR", rating:5 },
-  { q:"The AI agent they built for our support team handles 40% of tickets end-to-end. It just works.", a:"Marcus Heinz",  r:"CTO, Orion Co",          initials:"MH", rating:5 },
-  { q:"Engineers who actually talk to you. The PR reviews alone were worth the engagement.",  a:"Sofia Alvarez", r:"Founder, Kappa Labs",    initials:"SA", rating:5 },
+  { q:"They migrated our Java 8 monolith to 21 in 5 weeks. Our team spent two years trying.", a:"VP Engineering", r:"B2B SaaS company", initials:"VP", rating:5 },
+  { q:"The AI agent they built for our support team handles 40% of tickets end-to-end. It just works.", a:"CTO", r:"Fintech company", initials:"CT", rating:5 },
+  { q:"Engineers who actually talk to you. The PR reviews alone were worth the engagement.",  a:"Founder", r:"Dev-tools startup", initials:"FO", rating:5 },
 ];
 
 function StarIcon() {
@@ -21,6 +21,9 @@ export default function Testimonials() {
           <h2 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:44, fontWeight:700, letterSpacing:"-0.03em", marginTop:12, color:"#0F1A2E" }}>
             Teams who trusted us to ship.
           </h2>
+          <p style={{ fontSize:14, color:"#64748B", marginTop:12 }}>
+            Quotes shared with permission — names and companies withheld under NDA.
+          </p>
         </div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:20 }}>
           {ITEMS.map((t) => (

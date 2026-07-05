@@ -17,9 +17,9 @@ export const metadata: Metadata = {
 };
 
 const CASE_STUDIES = [
-  { company:"Trivally", industry:"SaaS", tag:"Java Modernization", headline:"Java 8 → 21 in 5 weeks",        body:"A 700K LOC billing engine was blocking the company from Java 21 features. We migrated the entire codebase, maintained 100% test coverage, and shipped to production on schedule.",  metric:"5 wks", metricLabel:"vs. 2-year manual attempt" },
-  { company:"Orion Co", industry:"Fintech", tag:"AI Agents",       headline:"40% of support tickets automated", body:"We built a domain-trained agent that reads support tickets, queries the internal knowledge base, and resolves them end-to-end — no human handoff for 40% of volume.",           metric:"40%",   metricLabel:"tickets handled autonomously" },
-  { company:"Kappa Labs", industry:"Dev Tools", tag:"Web Dev",     headline:"0→1 developer platform in 12 weeks", body:"Full-stack developer tooling platform: custom auth, GitHub integration, CI pipeline, and real-time collaboration. Shipped to 500 beta users on day one.",                    metric:"12 wks", metricLabel:"zero to production" },
+  { company:"B2B SaaS company", industry:"Billing platform", tag:"Java Modernization", headline:"Java 8 → 21 in 5 weeks",        body:"A 700K LOC billing engine was blocking the company from Java 21 features. We migrated the entire codebase, maintained 100% test coverage, and shipped to production on schedule.",  metric:"5 wks", metricLabel:"vs. 2-year manual attempt" },
+  { company:"Fintech company", industry:"Customer support", tag:"AI Agents",       headline:"40% of support tickets automated", body:"We built a domain-trained agent that reads support tickets, queries the internal knowledge base, and resolves them end-to-end — no human handoff for 40% of volume.",           metric:"40%",   metricLabel:"tickets handled autonomously" },
+  { company:"Dev-tools startup", industry:"Developer platform", tag:"Web Dev",     headline:"0→1 developer platform in 12 weeks", body:"Full-stack developer tooling platform: custom auth, GitHub integration, CI pipeline, and real-time collaboration. Shipped to 500 beta users on day one.",                    metric:"12 wks", metricLabel:"zero to production" },
 ];
 
 export default function WorkPage() {
@@ -32,7 +32,7 @@ export default function WorkPage() {
             Built by engineers.<br/>Trusted by teams.
           </h1>
           <p style={{ fontSize:18, color:"#475569", maxWidth:640, marginTop:16, lineHeight:1.6 }}>
-            40+ projects shipped. Here are a few that stood out.
+            40+ projects shipped. Here are a few that stood out — client names withheld under NDA, references available on request.
           </p>
         </div>
       </section>
