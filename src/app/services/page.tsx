@@ -25,9 +25,9 @@ const SERVICES = [
     ],
     timeline: "8-16 weeks for MVP",
     examples: [
-      { title: "SaaS Platform", desc: "Multi-tenant B2B platform with 10K+ users" },
-      { title: "E-commerce Site", desc: "Custom storefront with payment integration" },
-      { title: "Internal Tools", desc: "Admin dashboards and workflow automation" },
+      { title: "B2B SaaS Platform", desc: "A growing SaaS company came to us with a spec and a deadline. We took it end to end — multi-tenant architecture, role-based access, subscription billing, and an admin portal — from first schema to production, now serving 10K+ users." },
+      { title: "E-commerce Storefront", desc: "A retail brand needed to leave its template platform. We designed and shipped a custom storefront end to end: catalog, checkout with payment integration, order management, and CDN-backed sub-second page loads." },
+      { title: "Internal Operations Suite", desc: "An operations-heavy business ran on spreadsheets. We delivered the full replacement — admin dashboards, approval workflows, and reporting — integrated with their existing systems and rolled out team by team." },
     ],
   },
   {
@@ -52,9 +52,9 @@ const SERVICES = [
     ],
     timeline: "10-20 weeks for MVP",
     examples: [
-      { title: "Fitness App", desc: "Workout tracking with 50K+ active users" },
-      { title: "Delivery Platform", desc: "Real-time GPS tracking and order management" },
-      { title: "Social Network", desc: "Photo sharing with messaging features" },
+      { title: "Fitness & Tracking App", desc: "From wireframes to both app stores: we built a workout-tracking app end to end — offline-first data sync, wearable integration, and push-driven engagement — now used by 50K+ active users." },
+      { title: "Delivery Platform", desc: "A logistics startup needed driver and customer apps. We shipped the complete system: real-time GPS tracking, order management, dispatch backend, and phased store rollouts on both platforms." },
+      { title: "Community App", desc: "We took a social product from concept to launch — photo sharing, in-app messaging, moderation tooling, and the backend to scale it — delivered as one end-to-end engagement." },
     ],
   },
   {
@@ -79,9 +79,9 @@ const SERVICES = [
     ],
     timeline: "4-8 weeks",
     examples: [
-      { title: "Microservices Platform", desc: "Kubernetes cluster with 50+ services" },
-      { title: "Data Pipeline", desc: "ETL processing 1TB+ daily" },
-      { title: "High-Availability Setup", desc: "Multi-region deployment with 99.99% uptime" },
+      { title: "Microservices Platform", desc: "We designed and operated the migration of a monolith to a Kubernetes platform end to end — 50+ services, GitOps deployments, autoscaling, and observability — then handed it over with runbooks the in-house team runs today." },
+      { title: "Data Pipeline", desc: "A data team was drowning in manual ETL. We built the full pipeline — ingestion, transformation, orchestration, and monitoring — processing 1TB+ daily with automatic retries and alerting." },
+      { title: "High-Availability Setup", desc: "For a product that couldn't afford downtime, we delivered a multi-region architecture end to end: failover, load balancing, infrastructure as code, and chaos-tested recovery — sustaining 99.99% uptime." },
     ],
   },
   {
@@ -151,9 +151,9 @@ const SERVICES = [
     ],
     timeline: "2-4 weeks per agent",
     examples: [
-      { title: "Code Review Agent", desc: "Reviews 100% of PRs, caught 47 bugs pre-merge" },
-      { title: "Support Agent", desc: "85% ticket deflection, saved $240K/year" },
-      { title: "DevOps Agent", desc: "Auto-investigates incidents, reduced MTTR 67%" },
+      { title: "Code Review Agent", desc: "For an engineering org with a review bottleneck, we built and deployed a PR-review agent end to end — repo integration, eval suite from their PR history, and rollout gates. It now reviews 100% of PRs and caught 47 bugs pre-merge." },
+      { title: "Support Agent", desc: "A support team was buried in repeat tickets. We delivered the complete pipeline — knowledge-base ingestion, triage agent, human escalation, and monitoring — reaching 85% ticket deflection within a quarter." },
+      { title: "DevOps Agent", desc: "We built an incident-investigation agent end to end for a platform team: log and metric correlation, root-cause hypotheses posted to the incident channel, and audit trails — cutting MTTR by 67%." },
     ],
   },
   {
@@ -178,9 +178,9 @@ const SERVICES = [
     ],
     timeline: "6-12 weeks",
     examples: [
-      { title: "Legal Document Analysis", desc: "Fine-tuned model for contract review" },
-      { title: "Customer Support RAG", desc: "Answers from 10K+ support tickets" },
-      { title: "Code Generation", desc: "Domain-specific code assistant" },
+      { title: "Legal Document Analysis", desc: "A legal team needed contract review at scale. We handled it end to end — data preparation, fine-tuning, an evaluation set built with their reviewers, and a monitored inference API their tools call today." },
+      { title: "Customer Support RAG", desc: "We turned 10K+ historical support tickets into a production RAG system: ingestion pipeline, retrieval tuning, answer grounding with citations, and drift monitoring — delivered as one engagement from audit to launch." },
+      { title: "Domain Code Assistant", desc: "For a team with a large proprietary codebase, we built a code-generation assistant end to end — corpus curation, model adaptation, IDE integration, and evals that gate every model update." },
     ],
   },
   {
@@ -205,9 +205,9 @@ const SERVICES = [
     ],
     timeline: "6 weeks for 500K LOC",
     examples: [
-      { title: "Enterprise Monolith", desc: "500K LOC migrated in 3 weeks" },
-      { title: "Microservices Fleet", desc: "47 services upgraded, zero production issues" },
-      { title: "Legacy Banking System", desc: "15-year-old codebase, Java 8 → 21 in 6 weeks" },
+      { title: "Enterprise Monolith", desc: "A 500K-LOC monolith blocking every framework upgrade: we ran the migration end to end — AST analysis, batched refactoring PRs, generated tests, and CI updates — landing Java 21 in production in 3 weeks." },
+      { title: "Microservices Fleet", desc: "We upgraded a fleet of 47 services end to end, one reviewable batch at a time — dependency resolution, Spring Boot 3 migration, and staged rollouts — with zero production incidents." },
+      { title: "Legacy Financial System", desc: "A 15-year-old financial codebase on Java 8: we handled discovery, migration, test-coverage generation, and the compliance-ready migration report — delivering Java 21 in 6 weeks." },
     ],
   },
 ] as const;
@@ -466,16 +466,21 @@ export default function ServicesPage() {
 
               {/* Examples */}
               <div style={{ marginBottom: 64 }}>
-                <h3 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 28, fontWeight: 700, color: "#0F1A2E", marginBottom: 24 }}>
+                <h3 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 28, fontWeight: 700, color: "#0F1A2E", marginBottom: 8 }}>
                   Real Projects
                 </h3>
+                <p style={{ fontSize: 14, color: "#64748B", marginBottom: 24, lineHeight: 1.6 }}>
+                  End-to-end engagements we delivered. Client names are withheld under NDA — detailed write-ups are available in our{" "}
+                  <Link href="/work" style={{ color: "#0072FF", fontWeight: 600 }}>case studies</Link>{" "}
+                  and shared on request.
+                </p>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
                   {service.examples.map((example, i) => (
-                    <div key={i} style={{ padding: 20, background: "white", border: "1px solid #E2E8F0", borderRadius: 12 }}>
-                      <h4 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 16, fontWeight: 700, color: "#0F1A2E", marginBottom: 8 }}>
+                    <div key={i} style={{ padding: 24, background: "white", border: "1px solid #E2E8F0", borderRadius: 12, display: "flex", flexDirection: "column" }}>
+                      <h4 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 16, fontWeight: 700, color: "#0F1A2E", marginBottom: 10 }}>
                         {example.title}
                       </h4>
-                      <p style={{ fontSize: 13, color: "#64748B", lineHeight: 1.5, margin: 0 }}>{example.desc}</p>
+                      <p style={{ fontSize: 13.5, color: "#64748B", lineHeight: 1.65, margin: 0 }}>{example.desc}</p>
                     </div>
                   ))}
                 </div>
